@@ -1,574 +1,509 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rafael Munaro | Arquitetura e Interiores</title>
-  <meta name="description" content="Arquitetura autoral e design de interiores. Projetos residenciais e comerciais em Capivari, Americana e Piracicaba. Assinado por Rafael Munaro." />
-  <meta name="theme-color" content="#545943" />
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="18" fill="%23545943"/><text x="50" y="62" font-family="Arial, Helvetica, sans-serif" font-size="56" text-anchor="middle" fill="white">RM</text></svg>' />
-  <meta property="og:title" content="Rafael Munaro | Arquitetura e Interiores" />
-  <meta property="og:description" content="Arquitetura autoral e design de interiores em Capivari, Americana e Piracicaba." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rafaelmunaroarquitetura.com" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600&auto=format&fit=crop" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --ink: #1f1f1f;
-      --muted-ink: #4a4a4a;
-      --primary: #545943; /* oliva escuro */
-      --muted: #9BA187;   /* oliva claro */
-      --accent: #B66C48;  /* cobre */
-      --accent-2: #8C421E;/* bronze escuro */
-      --radius: 16px;
-      --maxw: 1200px;
-      --shade: 0 10px 30px rgba(0,0,0,.08);
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.55;
-    }
-
-    /* Layout helpers */
-    .container { width: min(100% - 2rem, var(--maxw)); margin: 0 auto; }
-    .grid { display: grid; gap: 24px; }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-
-    /* Header */
-    header.site-header {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(180%) blur(8px);
-      background: color-mix(in oklab, white 78%, var(--muted) 22% / 32%);
-      border-bottom: 1px solid color-mix(in oklab, var(--muted) 35%, white 65%);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-    .brand-badge { width: 44px; height: 44px; border-radius: 999px; background: var(--primary); color: white; display: grid; place-items: center; font-weight: 700; letter-spacing: .5px; box-shadow: var(--shade); }
-    .brand-name { font-weight: 700; letter-spacing: .3px; }
-
-    nav a {
-      text-decoration: none; color: var(--ink); font-weight: 500; padding: 8px 12px; border-radius: 10px; opacity: .9;
-    }
-    nav a:hover { background: color-mix(in oklab, var(--muted) 22%, white 78%); opacity: 1; }
-
-    .nav-right { display: flex; align-items: center; gap: 8px; }
-    .btn { appearance: none; border: 0; padding: 12px 18px; border-radius: 14px; font-weight: 600; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .2s ease; }
-    .btn:hover { transform: translateY(-1px); box-shadow: var(--shade); }
-    .btn:active { transform: translateY(0); }
-    .btn-primary { background: var(--primary); color: white; }
-    .btn-accent { background: var(--accent); color: white; }
-    .btn-outline { background: transparent; border: 1px solid color-mix(in oklab, var(--muted) 45%, white 55%); color: var(--ink); }
-
-    /* Mobile menu */
-    .burger { display: none; background: transparent; border: 0; padding: 10px; }
-    .burger span { display: block; width: 26px; height: 2px; background: var(--ink); margin: 6px 0; border-radius: 1px; }
-    .menu { display: flex; gap: 8px; align-items: center; }
-
-    /* Hero */
-    .hero { padding: 72px 0; }
-    .hero .container { display: grid; gap: 40px; grid-template-columns: 1.2fr .8fr; align-items: center; }
-    .eyebrow { color: var(--primary); letter-spacing: .12em; text-transform: uppercase; font-weight: 700; font-size: .78rem; }
-    h1 { font-family: "Playfair Display", serif; font-size: clamp(2rem, 2.6vw + 1rem, 4rem); line-height: 1.08; margin: 10px 0 16px; }
-    .lead { font-size: 1.06rem; color: var(--muted-ink); }
-
-    .hero-card { position: relative; aspect-ratio: 4/5; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shade); }
-    .hero-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.98) contrast(1.02); }
-    .hero-badges { position: absolute; inset: auto 12px 12px 12px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .badge { padding: 8px 12px; background: color-mix(in oklab, var(--muted) 15%, white 85%); border: 1px solid color-mix(in oklab, var(--muted) 35%, white 65%); color: var(--ink); border-radius: 999px; font-size: .85rem; }
-    .badge.accent { background: color-mix(in oklab, var(--accent) 20%, white 80%); border: 1px solid color-mix(in oklab, var(--accent) 40%, white 60%); color: #3a2419; }
-
-    /* Sections */
-    section { padding: 72px 0; }
-    .section-title { font-family: "Playfair Display", serif; font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem); margin: 0 0 10px; }
-    .section-lead { color: var(--muted-ink); margin: 0 0 28px; }
-
-    /* Services */
-    .card { background: white; border: 1px solid color-mix(in oklab, var(--muted) 35%, white 65%); border-radius: var(--radius); padding: 22px; box-shadow: 0 0 0 rgba(0,0,0,0); transition: transform .15s ease, box-shadow .2s ease; }
-    .card:hover { transform: translateY(-3px); box-shadow: var(--shade); }
-    .icon { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; background: color-mix(in oklab, var(--muted) 20%, white 80%); margin-bottom: 12px; }
-
-    /* Portfolio */
-    .portfolio-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
-    .tile { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #f4f4f2; border: 1px solid #e8e8e4; cursor: pointer; }
-    .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .tile .overlay { position: absolute; inset: 0; display: grid; align-content: end; padding: 14px; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.5)); color: white; font-weight: 600; opacity: .95; }
-    .tile:hover .overlay { opacity: 1; }
-    .col-6 { grid-column: span 6; }
-    .col-4 { grid-column: span 4; }
-    .col-8 { grid-column: span 8; }
-
-    /* Testimonials */
-    .quote { font-size: 1.02rem; color: #2a2a2a; }
-    .stars { color: var(--accent); letter-spacing: 2px; font-size: 1.1rem; }
-
-    /* Process */
-    .step { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; }
-    .step-num { width: 48px; height: 48px; border-radius: 12px; background: var(--primary); color: white; display: grid; place-items: center; font-weight: 700; box-shadow: var(--shade); }
-
-    /* Contact */
-    .contact { display: grid; gap: 24px; grid-template-columns: 1.1fr .9fr; }
-    form { display: grid; gap: 12px; }
-    label { font-weight: 600; font-size: .95rem; }
-    input, textarea, select { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #e0e0db; background: #fbfbf9; font: inherit; }
-    textarea { min-height: 140px; resize: vertical; }
-    .form-row { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
-    .small { font-size: .9rem; color: var(--muted-ink); }
-
-    /* Footer */
-    footer { background: #f7f7f4; border-top: 1px solid #ecece7; padding: 36px 0; }
-    .social a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); padding: 8px 12px; border-radius: 10px; }
-    .social a:hover { background: color-mix(in oklab, var(--muted) 18%, white 82%); }
-
-    /* Utilities */
-    .muted { color: var(--muted-ink); }
-    .accent { color: var(--accent); }
-    .divider { height: 1px; background: #ecece7; margin: 24px 0; }
-
-    /* Responsive */
-    @media (max-width: 1000px) {
-      .hero .container { grid-template-columns: 1fr; }
-      .contact { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 800px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      .grid-3 { grid-template-columns: 1fr; }
-      .menu { display: none; position: absolute; top: 64px; right: 16px; left: 16px; background: white; border: 1px solid #ecece7; border-radius: 14px; padding: 8px; box-shadow: var(--shade); }
-      .menu.open { display: grid; }
-      .burger { display: block; }
-    }
-
-    /* Scroll-reveal */
-    .reveal { opacity: 0; transform: translateY(10px); transition: all .6s cubic-bezier(.2,.6,.2,1); }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* Back to top */
-    #backToTop { position: fixed; right: 18px; bottom: 18px; z-index: 60; display: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Munaro | Arquitetura e Design de Interiores</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f9f9f7;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero-gradient {
+            transition: all 0.5s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%) !important;
+            backdrop-filter: blur(5px);
+        }
+        .hovered-element:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.25) 100%) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #B66C48;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 3px;
+        }
+        
+        .nav-link:hover:after {
+            width: 80%;
+        }
+        
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        
+        .project-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .contact-input {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .contact-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(182, 108, 72, 0.2);
+            border-color: #B66C48;
+            transform: scale(1.02);
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body>
-  <header class="site-header" aria-label="Topo do site">
-    <div class="container nav">
-      <a class="brand" href="#home" aria-label="Página inicial">
-        <span class="brand-badge" aria-hidden="true">RM</span>
-        <span class="brand-name">Rafael Munaro</span>
-      </a>
-      <nav aria-label="Navegação principal">
-        <button class="burger" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="menu" id="menu">
-          <a href="#sobre">Sobre</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#portfolio">Portfólio</a>
-          <a href="#processo">Processo</a>
-          <a href="#contato">Contato</a>
-          <a class="btn btn-accent" href="https://api.whatsapp.com/send/?phone=5519996908104&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">WhatsApp</a>
+<body class="bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#" class="title-font text-2xl font-bold text-[#545943]">Rafael Munaro</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-[#545943] font-medium">Início</a>
+                    <a href="#about" class="nav-link text-[#545943] font-medium">Sobre</a>
+                    <a href="#services" class="nav-link text-[#545943] font-medium">Serviços</a>
+                    <a href="#projects" class="nav-link text-[#545943] font-medium">Projetos</a>
+                    <a href="#contact" class="nav-link text-[#545943] font-medium">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-[#545943] focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-      </nav>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div id="vanta-bg" class="absolute inset-0"></div>
+        <div class="hero-gradient absolute inset-0 hovered-element mix-blend-mode-overlay opacity-70"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="title-font text-5xl md:text-7xl font-bold text-[#545943] mb-4">Rafael Munaro</h1>
+                <h2 class="text-xl md:text-2xl font-medium text-[#8C421E] mb-8">Arquitetura & Design de Interiores</h2>
+                <p class="text-lg md:text-xl text-[#545943] max-w-2xl mx-auto mb-8">Transformando espaços em experiências únicas com criatividade e excelência.</p>
+                <a href="#contact" class="inline-block bg-[#B66C48] hover:bg-[#8C421E] text-white font-medium py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#about" class="animate-bounce">
+                <i data-feather="chevron-down" class="text-[#545943] w-10 h-10"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="http://static.photos/workspace/640x360/10" alt="Rafael Munaro" class="rounded-lg shadow-xl w-full max-w-md mx-auto">
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="title-font text-3xl md:text-4xl font-bold text-[#545943] mb-6">Sobre Mim</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Sou Rafael Munaro, arquiteto e designer de interiores com paixão por criar espaços que unem funcionalidade, estética e personalidade. Com anos de experiência no mercado, meu objetivo é transformar suas ideias em realidade, criando ambientes que refletem seu estilo de vida.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Atuo principalmente nas cidades de Capivari/SP, Americana/SP e Piracicaba/SP, mas também atendemos outras regiões da grande Campinas mediante consulta.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://www.instagram.com/rafaelmunaro.arq/" target="_blank" class="flex items-center text-[#545943] hover:text-[#B66C48]">
+                            <i data-feather="instagram" class="mr-2"></i> @rafaelmunaro.arq
+                        </a>
+                        <a href="https://api.whatsapp.com/send/?phone=5519996908104&text&type=phone_number&app_absent=0" target="_blank" class="flex items-center text-[#545943] hover:text-[#B66C48]">
+                            <i data-feather="phone" class="mr-2"></i> (19) 99690-8104
+                        </a>
+                        <a href="mailto:contato@rafaelmunaroarquitetura.com" class="flex items-center text-[#545943] hover:text-[#B66C48]">
+                            <i data-feather="mail" class="mr-2"></i> contato@rafaelmunaroarquitetura.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-[#f5f5f2]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-[#545943] mb-4">Nossos Serviços</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Oferecemos soluções completas em arquitetura e design de interiores para diversos tipos de projetos.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-[#B66C48] mb-4">
+                        <i data-feather="home" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold text-[#545943] mb-3">Projetos Residenciais</h3>
+                    <p class="text-gray-600">Criação de projetos arquitetônicos e interiores para casas e apartamentos, desde reformas até construções novas.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-[#B66C48] mb-4">
+                        <i data-feather="briefcase" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold text-[#545943] mb-3">Projetos Comerciais</h3>
+                    <p class="text-gray-600">Desenvolvimento de espaços comerciais como lojas, escritórios e restaurantes, focados na experiência do cliente.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-[#B66C48] mb-4">
+                        <i data-feather="layers" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold text-[#545943] mb-3">Consultoria</h3>
+                    <p class="text-gray-600">Orientação profissional para ajudar na escolha de materiais, cores, iluminação e disposição de móveis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-[#545943] mb-4">Projetos Recentes</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Alguns dos nossos trabalhos mais recentes que refletem nossa abordagem criativa e atenção aos detalhes.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="http://static.photos/indoor/640x360/1" alt="Projeto Residencial" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-[#545943] mb-2">Residência Moderna</h3>
+                        <p class="text-gray-600 mb-4">Projeto completo de arquitetura e interiores para residência em Capivari/SP.</p>
+                        <a href="#" class="text-[#B66C48] font-medium flex items-center">
+                            Ver mais <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <img src="http://static.photos/office/640x360/2" alt="Escritório Corporativo" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-[#545943] mb-2">Escritório Corporativo</h3>
+                        <p class="text-gray-600 mb-4">Design de interiores para escritório em Americana/SP com foco em produtividade.</p>
+                        <a href="#" class="text-[#B66C48] font-medium flex items-center">
+                            Ver mais <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <img src="http://static.photos/restaurant/640x360/3" alt="Restaurante Contemporâneo" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-[#545943] mb-2">Restaurante Contemporâneo</h3>
+                        <p class="text-gray-600 mb-4">Projeto arquitetônico e interiores para restaurante em Piracicaba/SP.</p>
+                        <a href="#" class="text-[#B66C48] font-medium flex items-center">
+                            Ver mais <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#" class="inline-block border-2 border-[#545943] text-[#545943] font-medium py-3 px-8 rounded-full hover:bg-[#545943] hover:text-white transition duration-300">
+                    Ver Todos os Projetos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-[#f5f5f2]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-[#545943] mb-4">Depoimentos</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">O que nossos clientes dizem sobre nosso trabalho.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-[#B66C48] mb-4">
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"O Rafael transformou completamente nossa casa. Seu olhar profissional e atenção aos detalhes fizeram toda a diferença no resultado final."</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/1" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-[#545943]">Ana Carolina</h4>
+                            <p class="text-sm text-gray-500">Residência em Capivari/SP</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-[#B66C48] mb-4">
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Trabalhamos com o Rafael no projeto do nosso escritório e ficamos impressionados com a criatividade e profissionalismo. Recomendo muito!"</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/2" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-[#545943]">Ricardo Mendes</h4>
+                            <p class="text-sm text-gray-500">Escritório em Americana/SP</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-[#B66C48] mb-4">
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"O projeto do nosso restaurante superou todas as expectativas. O Rafael entendeu perfeitamente nossa visão e trouxe soluções incríveis."</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/3" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-[#545943]">Fernanda e Marcos</h4>
+                            <p class="text-sm text-gray-500">Restaurante em Piracicaba/SP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h2 class="title-font text-3xl md:text-4xl font-bold text-[#545943] mb-6">Entre em Contato</h2>
+                    <p class="text-lg text-gray-600 mb-8">Estamos prontos para transformar suas ideias em realidade. Entre em contato para agendar uma consulta ou tirar dúvidas sobre nossos serviços.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-[#B66C48] mr-4 mt-1">
+                                <i data-feather="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#545943]">Endereço</h4>
+                                <p class="text-gray-600">Rua Padre Fabiano, 1072, Centro, Capivari/SP</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#B66C48] mr-4 mt-1">
+                                <i data-feather="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#545943]">Telefone</h4>
+                                <p class="text-gray-600">(19) 99690-8104</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#B66C48] mr-4 mt-1">
+                                <i data-feather="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#545943]">E-mail</h4>
+                                <p class="text-gray-600">contato@rafaelmunaroarquitetura.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-[#545943] mb-4">Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.instagram.com/rafaelmunaro.arq/" target="_blank" class="text-[#545943] hover:text-[#B66C48]">
+                                <i data-feather="instagram" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://www.facebook.com/rafael.munaro.2025" target="_blank" class="text-[#545943] hover:text-[#B66C48]">
+                                <i data-feather="facebook" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://br.linkedin.com/in/rafael-soares-munaro" target="_blank" class="text-[#545943] hover:text-[#B66C48]">
+                                <i data-feather="linkedin" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <form class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-[#545943] font-medium mb-2">Nome</label>
+                            <input type="text" id="name" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#B66C48] transition duration-300" placeholder="Seu nome">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-[#545943] font-medium mb-2">E-mail</label>
+                            <input type="email" id="email" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#B66C48] transition duration-300" placeholder="seu@email.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-[#545943] font-medium mb-2">Telefone</label>
+                            <input type="tel" id="phone" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#B66C48] transition duration-300" placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-[#545943] font-medium mb-2">Mensagem</label>
+                            <textarea id="message" rows="4" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#B66C48] transition duration-300" placeholder="Conte-nos sobre seu projeto"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[#B66C48] hover:bg-[#8C421E] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.123456789012!2d-47.50778901234567!3d-23.00123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAwJzA0LjQiUyA0N8KwMzAnMjEuNiJX!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-  </header>
 
-  <main id="home">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <div>
-          <div class="eyebrow">Arquitetura e Interiores</div>
-          <h1>Projetos autorais, funcionais e atemporais</h1>
-          <p class="lead">Atendimento em Capivari, Americana e Piracicaba. Demais regiões da RMC sob consulta. Residencial e comercial com rigor técnico, estética precisa e execução coordenada.</p>
-          <div style="display:flex; gap:10px; margin-top:18px; flex-wrap: wrap;">
-            <a class="btn btn-primary" href="#portfolio">Ver portfólio</a>
-            <a class="btn btn-outline" href="#contato">Solicitar proposta</a>
-          </div>
-          <div style="margin-top:18px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="badge">Capivari</span>
-            <span class="badge">Americana</span>
-            <span class="badge">Piracicaba</span>
-            <span class="badge accent">RMC sob consulta</span>
-          </div>
-        </div>
-        <div class="hero-card reveal">
-          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1640&auto=format&fit=crop" alt="Sala de estar contemporânea com materiais naturais" loading="lazy"/>
-          <div class="hero-badges">
-            <span class="badge">Projeto arquitetônico</span>
-            <span class="badge">Interiores</span>
-            <span class="badge">Gerenciamento de obra</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section id="sobre">
-      <div class="container grid grid-2">
-        <div class="reveal">
-          <h2 class="section-title">Sobre Rafael Munaro</h2>
-          <p class="section-lead">Arquiteto e designer de interiores com foco em soluções personalizadas que equilibram conforto, durabilidade e identidade. Cada detalhe é pensado do layout ao acabamento.</p>
-          <div class="divider"></div>
-          <div class="grid grid-3">
-            <div class="card">
-              <div class="icon">🏛️</div>
-              <strong>Arquitetura residencial</strong>
-              <p class="muted">Projetos completos com leitura precisa do terreno, insolação e contexto urbano.</p>
+    <!-- Footer -->
+    <footer class="bg-[#545943] text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="title-font text-2xl font-bold mb-4">Rafael Munaro</h3>
+                    <p class="max-w-xs">Arquitetura e Design de Interiores com excelência e criatividade.</p>
+                </div>
+                <div class="mb-8 md:mb-0">
+                    <h4 class="font-bold text-lg mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-[#B66C48] transition duration-300">Início</a></li>
+                        <li><a href="#about" class="hover:text-[#B66C48] transition duration-300">Sobre</a></li>
+                        <li><a href="#services" class="hover:text-[#B66C48] transition duration-300">Serviços</a></li>
+                        <li><a href="#projects" class="hover:text-[#B66C48] transition duration-300">Projetos</a></li>
+                        <li><a href="#contact" class="hover:text-[#B66C48] transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="mb-8 md:mb-0">
+                    <h4 class="font-bold text-lg mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2 w-4 h-4"></i> Rua Padre Fabiano, 1072
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2 w-4 h-4"></i> (19) 99690-8104
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i> contato@rafaelmunaroarquitetura.com
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Área de Atuação</h4>
+                    <p>Capivari/SP</p>
+                    <p>Americana/SP</p>
+                    <p>Piracicaba/SP</p>
+                    <p class="mt-2">Demais regiões de Campinas a combinar</p>
+                </div>
             </div>
-            <div class="card">
-              <div class="icon">🪑</div>
-              <strong>Interiores sob medida</strong>
-              <p class="muted">Materiais coerentes, marcenaria funcional e iluminação calibrada para cada uso.</p>
+            <div class="border-t border-[#9BA187] mt-12 pt-8 text-center">
+                <p>&copy; 2023 Rafael Munaro Arquitetura. Todos os direitos reservados.</p>
             </div>
-            <div class="card">
-              <div class="icon">📐</div>
-              <strong>Obra e compatibilização</strong>
-              <p class="muted">Projetos executivos, cronograma e compatibilização com engenharia e fornecedores.</p>
-            </div>
-          </div>
         </div>
-        <aside class="reveal" aria-label="Informações de contato">
-          <div class="card" style="height:100%">
-            <h3 style="margin:0 0 8px">Contato direto</h3>
-            <p class="muted" style="margin:0 0 12px">Retorno em horário comercial.</p>
-            <div style="display:grid; gap:10px">
-              <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=5519996908104&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-              <a class="btn btn-outline" href="mailto:contato@rafaelmunaroarquitetura.com">contato@rafaelmunaroarquitetura.com</a>
-              <a class="btn btn-outline" href="tel:+5519996908104">(19) 99690-8104</a>
-              <a class="btn btn-outline" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AMunaro%3B%20Rafael%0AFN%3ARafael%20Munaro%0AORG%3ARafael%20Munaro%20Arquitetura%0ATITLE%3AArquiteto%0ATEL%3BTYPE%3Dcell%2Cvoice%2Cwa%3A%2B55%2019%2099690-8104%0AEMAIL%3Acontato%40rafaelmunaroarquitetura.com%0Aitem1.ADR%3Btype%3DWORK%3A%3B%3B Rua%20Padre%20Fabiano%2C%201072%2C%20Centro%3BCapivari%3BSP%3B%3BBrasil%0AURL%3Ahttps%3A%2F%2Fwww.instagram.com%2Frafaelmunaro.arq%2F%0AEND%3AVCARD">Salvar contato</a>
-            </div>
-            <div class="divider"></div>
-            <div class="social">
-              <a href="https://www.instagram.com/rafaelmunaro.arq/" target="_blank" rel="noopener" aria-label="Instagram de Rafael Munaro">📷 Instagram</a>
-              <a href="https://www.facebook.com/rafael.munaro.2025" target="_blank" rel="noopener" aria-label="Facebook de Rafael Munaro">📘 Facebook</a>
-              <a href="https://br.linkedin.com/in/rafael-soares-munaro" target="_blank" rel="noopener" aria-label="LinkedIn de Rafael Munaro">💼 LinkedIn</a>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
+    </footer>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos">
-      <div class="container">
-        <h2 class="section-title">Serviços</h2>
-        <p class="section-lead">Do estudo de viabilidade ao pós-obra. Pacotes modulares e transparentes.</p>
-        <div class="grid grid-3">
-          <div class="card reveal">
-            <div class="icon">🧭</div>
-            <h3>Consultoria inicial</h3>
-            <p class="muted">Briefing, estudo preliminar e diretrizes técnicas. Ideal para decisões seguras antes de investir.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">📊</div>
-            <h3>Projeto executivo</h3>
-            <p class="muted">Plantas, cortes, detalhamentos, quantitativos e memoriais para orçamento e obra.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">🎯</div>
-            <h3>Interiores completos</h3>
-            <p class="muted">Layout, marcenaria, luminotécnica, materiais e especificações com planilhas organizadas.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">🗂️</div>
-            <h3>Compatibilização</h3>
-            <p class="muted">Integração com estruturas, elétrica, hidráulica e climatização para evitar retrabalho.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">🛠️</div>
-            <h3>Gerenciamento de obra</h3>
-            <p class="muted">Cronograma, acompanhamento e qualidade de execução com fornecedores homologados.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">🏢</div>
-            <h3>Comercial</h3>
-            <p class="muted">Lojas e escritórios com experiência do usuário, operação fluida e marca consistente.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFÓLIO -->
-    <section id="portfolio">
-      <div class="container">
-        <h2 class="section-title">Portfólio</h2>
-        <p class="section-lead">Seleção de projetos com linguagem contemporânea e materiais naturais.</p>
-        <div class="portfolio-grid">
-          <!-- Substitua as imagens pelos seus arquivos. Mantido lazy loading e alt descritivo. -->
-          <figure class="tile col-8 reveal" data-title="Residência Lago Azul" data-tags="residencial, concreto aparente">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1600&auto=format&fit=crop" alt="Fachada de casa contemporânea com concreto e brises" />
-            <figcaption class="overlay">Residência Lago Azul</figcaption>
-          </figure>
-          <figure class="tile col-4 reveal" data-title="Apto Jardim Bela Vista" data-tags="interiores, marcenaria">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop" alt="Cozinha integrada com ilha em madeira e iluminação embutida" />
-            <figcaption class="overlay">Apto Jardim Bela Vista</figcaption>
-          </figure>
-          <figure class="tile col-6 reveal" data-title="Loja Essenza" data-tags="comercial, experiência">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1600&auto=format&fit=crop" alt="Loja minimalista com prateleiras de madeira e luz quente" />
-            <figcaption class="overlay">Loja Essenza</figcaption>
-          </figure>
-          <figure class="tile col-6 reveal" data-title="Casa Terracota" data-tags="residencial, pedra natural">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600&auto=format&fit=crop" alt="Sala de estar com parede de pedra e sofá em linho" />
-            <figcaption class="overlay">Casa Terracota</figcaption>
-          </figure>
-          <figure class="tile col-4 reveal" data-title="Clínica Studio+" data-tags="comercial, saúde">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop" alt="Recepção de clínica com madeira e iluminação difusa" />
-            <figcaption class="overlay">Clínica Studio+</figcaption>
-          </figure>
-          <figure class="tile col-8 reveal" data-title="Cobertura Horizon" data-tags="interiores, iluminação">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop" alt="Sala ampla com forro de gesso e iluminação linear" />
-            <figcaption class="overlay">Cobertura Horizon</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESSO -->
-    <section id="processo">
-      <div class="container">
-        <h2 class="section-title">Processo de trabalho</h2>
-        <p class="section-lead">Transparência, método e comunicação contínua do primeiro contato à entrega.</p>
-        <div class="grid grid-2">
-          <div class="step reveal">
-            <div class="step-num">1</div>
-            <div>
-              <h3>Briefing e diagnóstico</h3>
-              <p class="muted">Entendimento de necessidades, referências, orçamento e prazos. Visita técnica quando aplicável.</p>
-            </div>
-          </div>
-          <div class="step reveal">
-            <div class="step-num">2</div>
-            <div>
-              <h3>Conceito e estudo</h3>
-              <p class="muted">Partido arquitetônico, layout e moodboard. Direção material e volumetria inicial.</p>
-            </div>
-          </div>
-          <div class="step reveal">
-            <div class="step-num">3</div>
-            <div>
-              <h3>Executivo e compatibilização</h3>
-              <p class="muted">Detalhamento técnico, quantitativos e integração com disciplinas complementares.</p>
-            </div>
-          </div>
-          <div class="step reveal">
-            <div class="step-num">4</div>
-            <div>
-              <h3>Obra e entrega</h3>
-              <p class="muted">Acompanhamento, ajustes finos e entrega com manual de manutenção e fornecedor.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DEPOIMENTOS -->
-    <section aria-labelledby="depoimentos">
-      <div class="container">
-        <h2 id="depoimentos" class="section-title">Depoimentos</h2>
-        <p class="section-lead">Clientes satisfeitos com processos claros e acabamento de alto nível.</p>
-        <div class="grid grid-3">
-          <blockquote class="card reveal">
-            <div class="stars" aria-label="5 de 5">★★★★★</div>
-            <p class="quote">Rafael organizou o projeto do nosso escritório com clareza e precisão. O cronograma foi cumprido e o resultado superou a expectativa.</p>
-            <footer class="muted">Marina, Americana</footer>
-          </blockquote>
-          <blockquote class="card reveal">
-            <div class="stars" aria-label="5 de 5">★★★★★</div>
-            <p class="quote">Detalhamento impecável e ótima curadoria de materiais. O apartamento ficou funcional e elegante.</p>
-            <footer class="muted">Gustavo, Piracicaba</footer>
-          </blockquote>
-          <blockquote class="card reveal">
-            <div class="stars" aria-label="5 de 5">★★★★★</div>
-            <p class="quote">Acompanhamento de obra presente, fornecedores competentes e respostas rápidas. Recomendo.</p>
-            <footer class="muted">Eduardo, Capivari</footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section aria-label="Chamada para ação">
-      <div class="container card reveal" style="display:grid; gap:12px; align-items:center; grid-template-columns: 1fr auto;">
-        <div>
-          <h3 style="margin:0">Vamos conversar sobre o seu projeto</h3>
-          <p class="muted" style="margin:6px 0 0">Envie uma mensagem e receba retorno com próximos passos e prazos.</p>
-        </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:end;">
-          <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=5519996908104&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">Falar no WhatsApp</a>
-          <a class="btn btn-outline" href="#contato">Formulário</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato">
-      <div class="container contact">
-        <div>
-          <h2 class="section-title">Contato</h2>
-          <p class="section-lead">Rua Padre Fabiano, 1072, Centro, Capivari SP. Atendimento por agendamento.</p>
-          <!-- Formulário sem backend: usa mailto como fallback. Recomendado integrar a um serviço como Formspree. -->
-          <form aria-label="Formulário de contato" method="post" action="mailto:contato@rafaelmunaroarquitetura.com" enctype="text/plain">
-            <div class="form-row">
-              <div>
-                <label for="nome">Nome</label>
-                <input id="nome" name="Nome" placeholder="Seu nome" required />
-              </div>
-              <div>
-                <label for="email">E-mail</label>
-                <input id="email" type="email" name="Email" placeholder="seu@email.com" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label for="telefone">Telefone</label>
-                <input id="telefone" name="Telefone" placeholder="(19) 99690-8104" />
-              </div>
-              <div>
-                <label for="cidade">Cidade</label>
-                <select id="cidade" name="Cidade">
-                  <option>Capivari</option>
-                  <option>Americana</option>
-                  <option>Piracicaba</option>
-                  <option>Outra cidade da RMC</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label for="mensagem">Mensagem</label>
-              <textarea id="mensagem" name="Mensagem" placeholder="Conte brevemente sobre seu projeto"></textarea>
-            </div>
-            <div class="small">Ao enviar você concorda com o contato por e-mail ou WhatsApp para continuidade do atendimento.</div>
-            <button class="btn btn-primary" type="submit">Enviar</button>
-          </form>
-        </div>
-        <aside>
-          <div class="card reveal" style="overflow:hidden;">
-            <iframe title="Mapa do escritório" src="https://www.google.com/maps?q=Rua%20Padre%20Fabiano%2C%201072%2C%20Capivari%2C%20SP&output=embed" width="100%" height="320" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <div class="divider"></div>
-            <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
-              <li><strong>Email</strong> <a href="mailto:contato@rafaelmunaroarquitetura.com">contato@rafaelmunaroarquitetura.com</a></li>
-              <li><strong>Telefone</strong> <a href="tel:+5519996908104">(19) 99690-8104</a></li>
-              <li><strong>WhatsApp</strong> <a href="https://api.whatsapp.com/send/?phone=5519996908104&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">Abrir conversa</a></li>
-              <li><strong>Endereço</strong> Rua Padre Fabiano, 1072, Centro, Capivari SP</li>
-              <li><strong>Atuação</strong> Capivari, Americana e Piracicaba. Demais regiões da RMC a combinar.</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container" style="display:grid; gap:16px; grid-template-columns: 1fr auto; align-items:center;">
-      <div>
-        <strong>Rafael Munaro Arquitetura</strong>
-        <div class="muted">Arquitetura e interiores com precisão técnica e estética contemporânea.</div>
-      </div>
-      <div class="social" aria-label="Redes sociais">
-        <a href="https://www.instagram.com/rafaelmunaro.arq/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/rafael.munaro.2025" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://br.linkedin.com/in/rafael-soares-munaro" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
-
-  <button id="backToTop" class="btn btn-primary" aria-label="Voltar ao topo">↑</button>
-
-  <script>
-    // Mobile menu
-    const burger = document.querySelector('.burger');
-    const menu = document.getElementById('menu');
-    burger?.addEventListener('click', () => {
-      const expanded = burger.getAttribute('aria-expanded') === 'true';
-      burger.setAttribute('aria-expanded', String(!expanded));
-      menu.classList.toggle('open');
-    });
-
-    // Scroll reveal
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // Back to top
-    const back = document.getElementById('backToTop');
-    const onScroll = () => {
-      back.style.display = window.scrollY > 800 ? 'inline-flex' : 'none';
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Portfolio tile click opens detail modal with basic info
-    // Lightweight modal implementation
-    const modal = document.createElement('dialog');
-    modal.style.padding = '0';
-    modal.style.border = 'none';
-    modal.style.borderRadius = '16px';
-    modal.innerHTML = `
-      <div style="max-width:900px; width:min(92vw, 900px); background:white;">
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 18px; border-bottom:1px solid #ecece7;">
-          <strong id="m-title">Projeto</strong>
-          <button id="m-close" class="btn btn-outline" style="padding:8px 12px">Fechar</button>
-        </div>
-        <div id="m-body" style="display:grid; gap:0;">
-          <img id="m-img" alt="Imagem do projeto" style="width:100%; aspect-ratio: 16/9; object-fit: cover;"/>
-          <div style="padding:16px;">
-            <div class="muted" id="m-tags"></div>
-            <p style="margin-top:8px">Descrição breve do projeto. Substitua por informações reais e inclua materiais, soluções e área.</p>
-          </div>
-        </div>
-      </div>`;
-    document.body.appendChild(modal);
-    modal.querySelector('#m-close')?.addEventListener('click', () => modal.close());
-    document.addEventListener('click', (e) => {
-      const fig = e.target.closest('.tile');
-      if (!fig) return;
-      const img = fig.querySelector('img');
-      document.getElementById('m-title').textContent = fig.dataset.title || 'Projeto';
-      document.getElementById('m-tags').textContent = fig.dataset.tags || '';
-      const mimg = document.getElementById('m-img');
-      mimg.src = img.src; mimg.alt = img.alt;
-      modal.showModal();
-    });
-  </script>
-
-  <!-- SEO estruturado -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Rafael Munaro Arquitetura",
-    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop",
-    "description": "Arquitetura e design de interiores em Capivari, Americana e Piracicaba.",
-    "areaServed": ["Capivari/SP", "Americana/SP", "Piracicaba/SP", "Região Metropolitana de Campinas"],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rua Padre Fabiano, 1072, Centro",
-      "addressLocality": "Capivari",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    },
-    "telephone": "+55 19 99690-8104",
-    "email": "contato@rafaelmunaroarquitetura.com",
-    "sameAs": [
-      "https://www.instagram.com/rafaelmunaro.arq/",
-      "https://www.facebook.com/rafael.munaro.2025",
-      "https://br.linkedin.com/in/rafael-soares-munaro"
-    ]
-  }
-  </script>
-
-  <!-- Observações:
-    1) Substitua imagens do portfólio pelos seus arquivos.
-    2) Integre o formulário a um serviço de envio para produção.
-    3) Personalize cores mantendo o contraste. Paleta usada: #545943, #9BA187, #B66C48, #8C421E, fundo branco.
-  -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        feather.replace();
+        
+        VANTA.WAVES({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x545943,
+            shininess: 50.00,
+            waveHeight: 20.00,
+            waveSpeed: 0.75,
+            zoom: 0.75,
+            waveWidth: 20.00
+        });
+        
+        // Mobile menu toggle
+        document.querySelector('nav button').addEventListener('click', function() {
+            const menu = document.querySelector('.md\\:flex');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            menu.classList.toggle('flex-col');
+            menu.classList.toggle('absolute');
+            menu.classList.toggle('top-16');
+            menu.classList.toggle('left-0');
+            menu.classList.toggle('right-0');
+            menu.classList.toggle('bg-white');
+            menu.classList.toggle('p-4');
+            menu.classList.toggle('shadow-md');
+            menu.classList.toggle('space-y-4');
+            menu.classList.toggle('space-x-8');
+        });
+    </script>
 </body>
 </html>
