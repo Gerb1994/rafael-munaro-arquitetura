@@ -572,23 +572,77 @@
             width: 100%;
             height: 100%;
             background-image:
-                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
                 url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop');
             background-size: 120% 120%;
             background-position: center;
             z-index: -1;
-            animation: kenBurns 20s ease-out infinite alternate;
+            animation: heroMovement 25s ease-in-out infinite;
         }
 
-        @keyframes kenBurns {
+        .hero__bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(84, 89, 67, 0.15) 0%,
+                rgba(140, 66, 30, 0.1) 25%,
+                rgba(182, 108, 72, 0.08) 50%,
+                rgba(155, 161, 135, 0.12) 75%,
+                rgba(84, 89, 67, 0.18) 100%
+            );
+            animation: overlayPulse 8s ease-in-out infinite alternate;
+        }
+
+        .hero__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(84, 89, 67, 0.2) 0%,
+                rgba(140, 66, 30, 0.15) 30%,
+                rgba(182, 108, 72, 0.1) 60%,
+                rgba(155, 161, 135, 0.25) 100%
+            );
+            z-index: 1;
+        }
+
+        @keyframes heroMovement {
             0% {
-                transform: scale(1) translate(0, 0);
+                transform: scale(1.1) translate(0, 0);
+                filter: brightness(1);
+            }
+            25% {
+                transform: scale(1.15) translate(-2%, -1%);
+                filter: brightness(1.05);
             }
             50% {
-                transform: scale(1.1) translate(-5%, -5%);
+                transform: scale(1.2) translate(-4%, -2%);
+                filter: brightness(1.1);
+            }
+            75% {
+                transform: scale(1.18) translate(-3%, -1.5%);
+                filter: brightness(1.08);
             }
             100% {
-                transform: scale(1.2) translate(-10%, -10%);
+                transform: scale(1.1) translate(0, 0);
+                filter: brightness(1);
+            }
+        }
+
+        @keyframes overlayPulse {
+            0% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0.8;
             }
         }
 
@@ -598,6 +652,9 @@
             max-width: 900px;
             margin: 0 auto;
             padding: var(--space-3xl) 0;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .hero__title {
@@ -628,6 +685,7 @@
         /* LUXURY PORTFOLIO SECTION */
         .portfolio {
             background: rgba(255, 255, 255, 0.7);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             position: relative;
         }
@@ -662,6 +720,7 @@
             color: var(--luxury-olive);
             cursor: pointer;
             transition: all var(--transition-luxury);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
@@ -719,6 +778,7 @@
             transition: all var(--transition-luxury);
             cursor: pointer;
             position: relative;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(84, 89, 67, 0.05);
         }
@@ -875,6 +935,7 @@
         /* LUXURY SERVICES SECTION */
         .services {
             background: rgba(255, 255, 255, 0.7);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -903,6 +964,7 @@
             box-shadow: var(--shadow-lg);
             transition: all var(--transition-luxury);
             position: relative;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(84, 89, 67, 0.05);
         }
@@ -960,6 +1022,7 @@
         /* LUXURY TESTIMONIALS SECTION */
         .testimonials {
             background: rgba(255, 255, 255, 0.7);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             position: relative;
         }
@@ -1014,6 +1077,7 @@
             background: rgba(255, 255, 255, 0.9);
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-lg);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(84, 89, 67, 0.05);
         }
@@ -1125,6 +1189,7 @@
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-lg);
             transition: all var(--transition-luxury);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(84, 89, 67, 0.05);
         }
@@ -1154,13 +1219,15 @@
 
         /* LUXURY CONTACT SECTION */
         .contact__content {
-            display: grid;
-            gap: var(--space-3xl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
         }
 
         @media (min-width: 1024px) {
             .contact__content {
-                grid-template-columns: 1fr 1.5fr;
+                flex-direction: row;
+                gap: var(--space-2xl);
             }
         }
 
@@ -1175,6 +1242,7 @@
             background: rgba(255, 255, 255, 0.9);
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-md);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(84, 89, 67, 0.05);
             transition: all var(--transition-luxury);
@@ -1220,12 +1288,104 @@
 
         /* LUXURY FORM STYLES */
         .contact__form {
-            padding: var(--space-3xl);
+            padding: var(--space-2xl);
             background: rgba(255, 255, 255, 0.9);
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-xl);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(84, 89, 67, 0.05);
+            flex: 1;
+        }
+
+        .contact__info--form {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 2px solid rgba(84, 89, 67, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+
+        .contact__item--compact {
+            padding: var(--space-md);
+            background: rgba(84, 89, 67, 0.03);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(84, 89, 67, 0.05);
+            transition: all var(--transition-base);
+        }
+
+        .contact__item--compact:hover {
+            background: rgba(84, 89, 67, 0.08);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact__title--small {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--luxury-olive);
+            margin-bottom: var(--space-xs);
+            text-align: center;
+        }
+
+        .contact__link--small {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--luxury-terracotta);
+            text-align: center;
+            display: block;
+            transition: color var(--transition-fast);
+        }
+
+        .contact__link--small:hover {
+            color: var(--luxury-brown);
+        }
+
+        .contact__address--small {
+            font-size: var(--text-sm);
+            color: #6B7280;
+            text-align: center;
+            font-style: normal;
+        }
+
+        /* SOCIAL ICONS STYLES */
+        .social__link--icon {
+            padding: var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            min-height: 60px;
+        }
+
+        .social__icon {
+            font-size: var(--text-2xl);
+            line-height: 1;
+            transition: transform var(--transition-fast);
+        }
+
+        .social__link--icon:hover .social__icon {
+            transform: scale(1.1);
+        }
+
+        .footer__social-link--icon {
+            padding: var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            min-height: 60px;
+        }
+
+        .footer__social-icon {
+            font-size: var(--text-xl);
+            line-height: 1;
+            transition: transform var(--transition-fast);
+        }
+
+        .footer__social-link--icon:hover .footer__social-icon {
+            transform: scale(1.1);
         }
 
         .form__group {
@@ -1250,6 +1410,7 @@
             font-size: var(--text-base);
             transition: all var(--transition-fast);
             background: rgba(255, 255, 255, 0.8);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -1362,6 +1523,7 @@
             border-radius: var(--radius-xl);
             font-size: var(--text-base);
             transition: all var(--transition-luxury);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -1403,6 +1565,7 @@
             font-weight: 600;
             transition: all var(--transition-luxury);
             text-decoration: none;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
@@ -1602,6 +1765,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
         }
 
@@ -1643,6 +1807,7 @@
             border-radius: 50%;
             cursor: pointer;
             transition: all var(--transition-base);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -1664,6 +1829,7 @@
             border-radius: 50%;
             cursor: pointer;
             transition: all var(--transition-base);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -1696,6 +1862,158 @@
             background-position: center;
             transform: translateY(0);
             will-change: transform;
+        }
+
+        /* ENHANCED INTERACTIVITY */
+        .interactive-element {
+            transition: all var(--transition-luxury);
+        }
+
+        .interactive-element:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .magnetic-element {
+            transition: transform var(--transition-fast);
+        }
+
+        .glow-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg) translate(-100%, -100%);
+            transition: transform 0.6s;
+            pointer-events: none;
+        }
+
+        .glow-effect:hover::before {
+            transform: rotate(45deg) translate(100%, 100%);
+        }
+
+        /* FLOATING ELEMENTS */
+        .float-up {
+            animation: floatUp 6s ease-in-out infinite;
+        }
+
+        .float-down {
+            animation: floatDown 8s ease-in-out infinite;
+        }
+
+        .float-left {
+            animation: floatLeft 7s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes floatDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        @keyframes floatLeft {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-5px); }
+        }
+
+        /* PULSE ANIMATIONS */
+        .pulse-gentle {
+            animation: pulseGentle 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseGentle {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        /* STAGGER ANIMATIONS */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: staggerIn 0.6s ease-out forwards;
+        }
+
+        .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+        .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes staggerIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RIPPLE EFFECT */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+
+        /* MAGNETIC HOVER EFFECT */
+        .magnetic-hover {
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ENHANCED BUTTONS */
+        .btn--magnetic {
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .btn--magnetic:hover {
+            transform: scale(1.05) translateY(-2px);
+        }
+
+        /* DYNAMIC BACKGROUNDS */
+        .dynamic-bg {
+            background: linear-gradient(-45deg, var(--luxury-olive), var(--luxury-sage), var(--luxury-terracotta));
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* LUXURY ANIMATIONS */
@@ -1854,6 +2172,28 @@
             /* Mobile scroll progress */
             .scroll-progress {
                 height: 3px;
+            }
+
+            /* Mobile enhanced interactivity */
+            .btn--magnetic:hover {
+                transform: translateY(-2px);
+            }
+
+            .interactive-element:hover {
+                transform: translateY(-2px);
+            }
+
+            .glow-effect:hover::before {
+                transform: rotate(45deg) translate(50%, 50%);
+            }
+
+            /* Reduce animations on mobile for better performance */
+            .pulse-gentle {
+                animation-duration: 6s;
+            }
+
+            .float-up, .float-down, .float-left {
+                animation-duration: 8s;
             }
         }
 
@@ -2617,6 +2957,85 @@
             }
 
             // ============================================
+            // MAGNETIC ELEMENTS
+            // ============================================
+            function initMagneticElements() {
+                const magneticElements = document.querySelectorAll('.magnetic-hover');
+
+                magneticElements.forEach(element => {
+                    element.addEventListener('mousemove', (e) => {
+                        const rect = element.getBoundingClientRect();
+                        const centerX = rect.left + rect.width / 2;
+                        const centerY = rect.top + rect.height / 2;
+                        const deltaX = (e.clientX - centerX) * 0.1;
+                        const deltaY = (e.clientY - centerY) * 0.1;
+
+                        element.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                    });
+
+                    element.addEventListener('mouseleave', () => {
+                        element.style.transform = 'translate(0, 0)';
+                    });
+                });
+            }
+
+            // ============================================
+            // SCROLL-BASED ANIMATIONS
+            // ============================================
+            function initScrollAnimations() {
+                const animatedElements = document.querySelectorAll('.interactive-element, .glow-effect');
+
+                function checkScroll() {
+                    animatedElements.forEach(element => {
+                        const rect = element.getBoundingClientRect();
+                        const isVisible = rect.top < window.innerHeight - 100;
+
+                        if (isVisible && !element.classList.contains('animated')) {
+                            element.classList.add('animated');
+                        }
+                    });
+                }
+
+                window.addEventListener('scroll', checkScroll, { passive: true });
+                checkScroll(); // Check on load
+            }
+
+            // ============================================
+            // ENHANCED PARTICLE INTERACTION
+            // ============================================
+            function enhanceParticleInteraction() {
+                const particles = document.querySelectorAll('.particle');
+
+                document.addEventListener('mousemove', (e) => {
+                    particles.forEach(particle => {
+                        const rect = particle.getBoundingClientRect();
+                        const distance = Math.sqrt(
+                            Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
+                            Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
+                        );
+
+                        if (distance < 100) {
+                            const scale = Math.max(0.5, 1 - distance / 100);
+                            particle.style.transform = `scale(${scale})`;
+                        } else {
+                            particle.style.transform = 'scale(1)';
+                        }
+                    });
+                });
+            }
+
+            // ============================================
+            // DYNAMIC BACKGROUND EFFECTS
+            // ============================================
+            function initDynamicBackgrounds() {
+                const dynamicElements = document.querySelectorAll('.dynamic-bg');
+
+                dynamicElements.forEach(element => {
+                    element.style.animation = 'gradientShift 15s ease infinite';
+                });
+            }
+
+            // ============================================
             // LUXURY INITIALIZATION
             // ============================================
             console.log('🏛️ Rafael Munaro Arquitetura - Luxury Portfolio Loaded ✨');
@@ -2629,6 +3048,10 @@
             enhanceFormValidation();
             initLoadingStates();
             initTestimonialsCarousel();
+            initMagneticElements();
+            initScrollAnimations();
+            enhanceParticleInteraction();
+            initDynamicBackgrounds();
 
             // Mark body as loaded
             document.body.classList.add('loaded');
@@ -2720,11 +3143,12 @@
                 <h1 class="hero__title">Arquiteto em Capivari, Americana e Piracicaba | Rafael Munaro</h1>
                 <p class="hero__subtitle">Projetos arquitetônicos e design de interiores que transformam espaços em Capivari, Americana, Piracicaba e região</p>
                 <div class="hero__actions">
-                    <a href="#portfolio" class="btn btn--secondary">Ver Projetos em Capivari</a>
-                    <a href="#contato" class="btn btn--outline">Falar com Arquiteto</a>
+                    <a href="#portfolio" class="btn btn--secondary btn--magnetic glow-effect">Ver Projetos em Capivari</a>
+                    <a href="#contato" class="btn btn--outline btn--magnetic glow-effect">Falar com Arquiteto</a>
                 </div>
             </div>
             <div class="hero__bg"></div>
+            <div class="hero__overlay"></div>
         </section>
 
         <!-- Luxury Portfolio Section -->
@@ -2735,11 +3159,11 @@
                     <p class="section__subtitle">Portfólio de projetos residenciais e comerciais desenvolvidos com excelência em Capivari/SP e região</p>
                 </header>
 
-                <div class="portfolio__filters">
-                    <button class="filter__btn filter__btn--active" data-filter="*">Todos</button>
-                    <button class="filter__btn" data-filter="residencial">Residencial</button>
-                    <button class="filter__btn" data-filter="comercial">Comercial</button>
-                    <button class="filter__btn" data-filter="interiores">Interiores</button>
+                <div class="portfolio__filters stagger-children">
+                    <button class="filter__btn filter__btn--active ripple glow-effect" data-filter="*">Todos</button>
+                    <button class="filter__btn ripple glow-effect" data-filter="residencial">Residencial</button>
+                    <button class="filter__btn ripple glow-effect" data-filter="comercial">Comercial</button>
+                    <button class="filter__btn ripple glow-effect" data-filter="interiores">Interiores</button>
                 </div>
 
                 <div class="portfolio__grid">
@@ -2857,23 +3281,23 @@
                             <a href="https://www.instagram.com/rafaelmunaro.arq/"
                                target="_blank"
                                rel="me noopener"
-                               class="social__link"
+                               class="social__link social__link--icon"
                                aria-label="Perfil no Instagram">
-                               Instagram
+                               <span class="social__icon">📷</span>
                             </a>
                             <a href="https://www.facebook.com/rafael.munaro.2025"
                                target="_blank"
                                rel="me noopener"
-                               class="social__link"
+                               class="social__link social__link--icon"
                                aria-label="Perfil no Facebook">
-                               Facebook
+                               <span class="social__icon">📘</span>
                             </a>
                             <a href="https://br.linkedin.com/in/rafael-soares-munaro"
                                target="_blank"
                                rel="me noopener"
-                               class="social__link"
+                               class="social__link social__link--icon"
                                aria-label="Perfil no LinkedIn">
-                               LinkedIn
+                               <span class="social__icon">💼</span>
                             </a>
                         </div>
                     </div>
@@ -2897,33 +3321,33 @@
                     <p class="section__subtitle">Processo completo de arquitetura e design de interiores com atendimento personalizado em Capivari/SP, Americana/SP e Piracicaba/SP</p>
                 </header>
 
-                <div class="process__steps">
-                    <div class="process__step">
-                        <div class="process__number">01</div>
+                <div class="process__steps stagger-children">
+                    <div class="process__step interactive-element glow-effect pulse-gentle">
+                        <div class="process__number float-up">01</div>
                         <div class="process__content">
                             <h3 class="process__title">Briefing</h3>
                             <p class="process__description">Entendimento das necessidades, estilo de vida e expectativas do cliente</p>
                         </div>
                     </div>
 
-                    <div class="process__step">
-                        <div class="process__number">02</div>
+                    <div class="process__step interactive-element glow-effect">
+                        <div class="process__number float-down">02</div>
                         <div class="process__content">
                             <h3 class="process__title">Conceito</h3>
                             <p class="process__description">Desenvolvimento da proposta conceitual e estudos preliminares</p>
                         </div>
                     </div>
 
-                    <div class="process__step">
-                        <div class="process__number">03</div>
+                    <div class="process__step interactive-element glow-effect pulse-gentle">
+                        <div class="process__number float-up">03</div>
                         <div class="process__content">
                             <h3 class="process__title">Executivo</h3>
                             <p class="process__description">Detalhamento técnico completo para execução da obra</p>
                         </div>
                     </div>
 
-                    <div class="process__step">
-                        <div class="process__number">04</div>
+                    <div class="process__step interactive-element glow-effect">
+                        <div class="process__number float-down">04</div>
                         <div class="process__content">
                             <h3 class="process__title">Obra</h3>
                             <p class="process__description">Acompanhamento e supervisão durante toda a execução</p>
@@ -3009,13 +3433,13 @@
                 </div>
 
                 <div class="testimonials__nav">
-                    <button class="testimonial__nav-btn testimonial__nav-btn--prev" id="testimonial-prev">&larr;</button>
+                    <button class="testimonial__nav-btn testimonial__nav-btn--prev ripple magnetic-hover" id="testimonial-prev">&larr;</button>
                     <div class="testimonial__dots">
-                        <span class="testimonial__dot testimonial__dot--active" data-slide="0"></span>
-                        <span class="testimonial__dot" data-slide="1"></span>
-                        <span class="testimonial__dot" data-slide="2"></span>
+                        <span class="testimonial__dot testimonial__dot--active ripple" data-slide="0"></span>
+                        <span class="testimonial__dot ripple" data-slide="1"></span>
+                        <span class="testimonial__dot ripple" data-slide="2"></span>
                     </div>
-                    <button class="testimonial__nav-btn testimonial__nav-btn--next" id="testimonial-next">&rarr;</button>
+                    <button class="testimonial__nav-btn testimonial__nav-btn--next ripple magnetic-hover" id="testimonial-next">&rarr;</button>
                 </div>
             </div>
         </section>
@@ -3029,42 +3453,6 @@
                 </header>
 
                 <div class="contact__content">
-                    <div class="contact__info">
-                        <div class="contact__item">
-                            <h3 class="contact__title">WhatsApp</h3>
-                            <a href="https://api.whatsapp.com/send/?phone=5519996908104&text&type=phone_number&app_absent=0"
-                               target="_blank"
-                               rel="noopener"
-                               class="contact__link">
-                               (19) 99690-8104
-                            </a>
-                        </div>
-
-                        <div class="contact__item">
-                            <h3 class="contact__title">E-mail</h3>
-                            <a href="mailto:contato@rafaelmunaroarquitetura.com"
-                               class="contact__link">
-                               contato@rafaelmunaroarquitetura.com
-                            </a>
-                        </div>
-
-                        <div class="contact__item">
-                            <h3 class="contact__title">Telefone</h3>
-                            <a href="tel:+5519996908104"
-                               class="contact__link">
-                               (19) 99690-8104
-                            </a>
-                        </div>
-
-                        <div class="contact__item">
-                            <h3 class="contact__title">Endereço</h3>
-                            <address class="contact__address">
-                                Rua Padre Fabiano, 1072, Centro<br>
-                                Capivari/SP
-                            </address>
-                        </div>
-                    </div>
-
                     <form class="contact__form">
                         <div class="form__group">
                             <label for="nome" class="form__label">Nome</label>
@@ -3081,7 +3469,43 @@
                             <textarea id="mensagem" name="mensagem" class="form__textarea" rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn--primary btn--full">Enviar Mensagem</button>
+                        <button type="submit" class="btn btn--primary btn--full btn--magnetic glow-effect ripple">Enviar Mensagem</button>
+
+                        <div class="contact__info contact__info--form">
+                            <div class="contact__item contact__item--compact">
+                                <h4 class="contact__title contact__title--small">📱 WhatsApp</h4>
+                                <a href="https://api.whatsapp.com/send/?phone=5519996908104&text&type=phone_number&app_absent=0"
+                                   target="_blank"
+                                   rel="noopener"
+                                   class="contact__link contact__link--small">
+                                   (19) 99690-8104
+                                </a>
+                            </div>
+
+                            <div class="contact__item contact__item--compact">
+                                <h4 class="contact__title contact__title--small">✉️ E-mail</h4>
+                                <a href="mailto:contato@rafaelmunaroarquitetura.com"
+                                   class="contact__link contact__link--small">
+                                   contato@rafaelmunaroarquitetura.com
+                                </a>
+                            </div>
+
+                            <div class="contact__item contact__item--compact">
+                                <h4 class="contact__title contact__title--small">📞 Telefone</h4>
+                                <a href="tel:+5519996908104"
+                                   class="contact__link contact__link--small">
+                                   (19) 99690-8104
+                                </a>
+                            </div>
+
+                            <div class="contact__item contact__item--compact">
+                                <h4 class="contact__title contact__title--small">📍 Endereço</h4>
+                                <address class="contact__address contact__address--small">
+                                    Rua Padre Fabiano, 1072, Centro<br>
+                                    Capivari/SP
+                                </address>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -3140,23 +3564,23 @@
                         <a href="https://www.instagram.com/rafaelmunaro.arq/"
                            target="_blank"
                            rel="me noopener"
-                           class="footer__social-link"
+                           class="footer__social-link footer__social-link--icon"
                            aria-label="Instagram do Arquiteto Rafael Munaro">
-                           Instagram
+                           <span class="footer__social-icon">📷</span>
                         </a>
                         <a href="https://www.facebook.com/rafael.munaro.2025"
                            target="_blank"
                            rel="me noopener"
-                           class="footer__social-link"
+                           class="footer__social-link footer__social-link--icon"
                            aria-label="Facebook do Arquiteto Rafael Munaro">
-                           Facebook
+                           <span class="footer__social-icon">📘</span>
                         </a>
                         <a href="https://br.linkedin.com/in/rafael-soares-munaro"
                            target="_blank"
                            rel="me noopener"
-                           class="footer__social-link"
+                           class="footer__social-link footer__social-link--icon"
                            aria-label="LinkedIn do Arquiteto Rafael Munaro">
-                           LinkedIn
+                           <span class="footer__social-icon">💼</span>
                         </a>
                     </div>
                 </div>
@@ -3184,7 +3608,7 @@
     <a href="https://api.whatsapp.com/send/?phone=5519996908104&text&type=phone_number&app_absent=0"
        target="_blank"
        rel="noopener"
-       class="whatsapp-float"
+       class="whatsapp-float btn--magnetic glow-effect pulse-gentle"
        aria-label="Falar no WhatsApp">
        <span class="whatsapp-float__text">WhatsApp</span>
     </a>
