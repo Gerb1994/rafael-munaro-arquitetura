@@ -6,7 +6,7 @@
 
     <!-- Página inicial -->
     <url>
-        <loc>https://rafaelmunaro.com/</loc>
+        <loc>https://rafaelmunaroarquitetura.com/</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -14,28 +14,28 @@
 
     <!-- Seções da página principal -->
     <url>
-        <loc>https://rafaelmunaro.com/#about</loc>
+        <loc>https://rafaelmunaroarquitetura.com/#about</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://rafaelmunaro.com/#portfolio</loc>
+        <loc>https://rafaelmunaroarquitetura.com/#portfolio</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://rafaelmunaro.com/#services</loc>
+        <loc>https://rafaelmunaroarquitetura.com/#services</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://rafaelmunaro.com/#contact</loc>
+        <loc>https://rafaelmunaroarquitetura.com/#contact</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -44,28 +44,28 @@
     <!-- Páginas futuras (exemplo) -->
     <!--
     <url>
-        <loc>https://rafaelmunaro.com/projetos</loc>
+        <loc>https://rafaelmunaroarquitetura.com/projetos</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://rafaelmunaro.com/sobre</loc>
+        <loc>https://rafaelmunaroarquitetura.com/sobre</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
-        <loc>https://rafaelmunaro.com/contato</loc>
+        <loc>https://rafaelmunaroarquitetura.com/contato</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://rafaelmunaro.com/blog</loc>
+        <loc>https://rafaelmunaroarquitetura.com/blog</loc>
         <lastmod>2024-09-11</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
@@ -73,3 +73,4 @@
     -->
 
 </urlset>
+
