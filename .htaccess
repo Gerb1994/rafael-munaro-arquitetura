@@ -1,0 +1,151 @@
+# RAFAEL MUNARO ARQUITETURA - CONFIGURAÇÕES DE SEGURANÇA APACHE
+# Implementar no servidor para máxima segurança
+
+# Headers de Segurança Essenciais
+<IfModule mod_headers.c>
+  # Previne clickjacking
+  Header always set X-Frame-Options "DENY"
+
+  # Previne MIME type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Política de referência segura
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Política de permissões
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), accelerometer=(), payment=(), usb=(), autoplay=()"
+
+  # HSTS (REMOVER se não usar HTTPS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Content Security Policy Aprimorado
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.unsplash.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content; report-uri /csp-report;"
+
+  # Proteção contra XSS
+  Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Proteção contra acesso direto a arquivos sensíveis
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|conf|bak|backup|old)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# Proteção contra acesso a diretórios
+Options -Indexes
+IndexIgnore *
+
+# Limitação de tamanho de upload
+LimitRequestBody 10485760
+
+# Timeout de sessão seguro
+<IfModule mod_reqtimeout.c>
+  RequestReadTimeout header=20-40,MinRate=500 body=20,MinRate=500
+</IfModule>
+
+# Compressão GZIP
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Cache inteligente
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # CSS e JavaScript - 1 mês
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/x-javascript "access plus 1 month"
+
+  # Imagens - 1 ano
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+
+  # Fontes - 1 ano
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+
+  # HTML - sem cache (para SEO dinâmico)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Regras de reescrita para SEO
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Forçar HTTPS (descomente se tiver certificado SSL)
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Remover trailing slash
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} (.+)/$
+  RewriteRule ^ %1 [L,R=301]
+
+  # Redirecionar www para não-www
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # Proteção contra hotlinking
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteCond %{HTTP_REFERER} !^https?://(www\.)?rafaelmunaro\.com [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://(www\.)?github\.io [NC]
+  RewriteCond %{REQUEST_FILENAME} \.(png|jpg|jpeg|gif|svg|webp|ico)$ [NC]
+  RewriteRule . - [F,L]
+
+  # Bloquear user agents suspeitos
+  RewriteCond %{HTTP_USER_AGENT} ^.*(libwww-perl|BBBike|wget|winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner|python-requests/|Go-http-client/|java/|okhttp/|scrapy/|sqlmap).*$ [NC]
+  RewriteRule . - [F,L]
+
+  # Rate limiting básico (requer mod_evasive ou similar)
+  # RewriteCond %{REQUEST_URI} ^/api/ [NC]
+  # RewriteCond %{TIME} %1
+  # RewriteRule ^.*$ - [F,L]
+</IfModule>
+
+# Configuração de error pages customizados
+ErrorDocument 400 /error/400.html
+ErrorDocument 401 /error/401.html
+ErrorDocument 403 /error/403.html
+ErrorDocument 404 /error/404.html
+ErrorDocument 500 /error/500.html
+
+# Configuração de PHP segura (se usar PHP)
+<IfModule mod_php.c>
+  php_flag display_errors off
+  php_flag log_errors on
+  php_value error_reporting E_ALL
+  php_flag register_globals off
+  php_flag magic_quotes_gpc off
+  php_flag allow_url_fopen off
+  php_flag allow_url_include off
+  php_flag expose_php off
+  php_value session.cookie_httponly 1
+  php_value session.cookie_secure 1
+  php_value session.use_only_cookies 1
+</IfModule>
+
+# Proteção contra injeção de arquivos
+<Files *.php>
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+</Files>
+
+# Configuração de logs detalhados para segurança
+<IfModule mod_log_config.c>
+  LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" \"%{X-Forwarded-For}i\"" security
+  CustomLog logs/security.log security
+</IfModule>
