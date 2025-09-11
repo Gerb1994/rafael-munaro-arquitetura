@@ -1,11 +1,11 @@
 # Robots.txt para Rafael Munaro Arquitetura
-# https://rafaelmunaro.com/robots.txt
+# https://rafaelmunaroarquitetura.com/robots.txt
 
 User-agent: *
 Allow: /
 
 # Permitir acesso ao sitemap
-Sitemap: https://rafaelmunaro.com/sitemap.xml
+Sitemap: https://rafaelmunaroarquitetura.com/sitemap.xml
 
 # Bloquear acesso a arquivos sensíveis
 Disallow: /admin/
@@ -39,3 +39,4 @@ Disallow: /
 
 User-agent: SemrushBot
 Disallow: /
+
