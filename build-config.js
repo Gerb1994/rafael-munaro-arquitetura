@@ -144,13 +144,13 @@ const BuildConfig = {
         // URLs base para diferentes ambientes
         urls: {
             development: '/',
-            staging: 'https://staging.rafaelmunaro.com/',
-            production: 'https://rafaelmunaro.com/'
+            staging: 'https://staging.https://rafaelmunaroarquitetura.com//',
+            production: 'https://https://rafaelmunaroarquitetura.com//'
         },
 
         // Distribuição de recursos por CDN
         distribution: {
-            images: 'https://cdn.rafaelmunaro.com/images/',
+            images: 'https://cdn.https://rafaelmunaroarquitetura.com//images/',
             fonts: 'https://fonts.googleapis.com/',
             scripts: 'https://cdnjs.cloudflare.com/ajax/libs/'
         }
@@ -292,7 +292,7 @@ const BuildConfig = {
             'github-pages': {
                 buildCommand: 'npm run build',
                 outputDirectory: 'dist',
-                cname: 'rafaelmunaro.com'
+                cname: 'https://rafaelmunaroarquitetura.com/'
             }
         },
 
@@ -342,3 +342,4 @@ if (typeof module !== 'undefined' && module.exports) {
     // Em ambiente browser
     window.BuildConfig = BuildConfig;
 }
+
