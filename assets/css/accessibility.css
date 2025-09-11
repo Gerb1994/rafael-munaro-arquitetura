@@ -1,0 +1,466 @@
+/**
+ * RAFAEL MUNARO ARQUITETURA - ESTILOS DE ACESSIBILIDADE
+ * CSS para melhorar a experiência de usuários com necessidades especiais
+ */
+
+/* ============================================
+   ESTILOS GERAIS DE ACESSIBILIDADE
+   ============================================ */
+
+/* Skip links */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--rm-olive);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    z-index: 1000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 6px;
+    outline: 2px solid var(--rm-cream);
+    outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus indicators */
+*:focus {
+    outline: 2px solid var(--rm-olive);
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--rm-olive);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   FORMULÁRIOS ACESSÍVEIS
+   ============================================ */
+
+/* Required field indicators */
+.required-indicator {
+    color: #ef4444;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+/* Form validation states */
+.form__input--valid {
+    border-color: #10b981;
+    background-color: rgba(16, 185, 129, 0.05);
+}
+
+.form__input--invalid {
+    border-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+.form__group--error .form__label {
+    color: #ef4444;
+}
+
+/* Error messages */
+.form__error {
+    color: #ef4444;
+    font-size: 14px;
+    margin-top: 4px;
+    display: none;
+}
+
+.form__group--error .form__error {
+    display: block;
+}
+
+/* ============================================
+   NAVEGAÇÃO POR TECLADO
+   ============================================ */
+
+/* Menu navigation */
+.nav__list a:focus,
+.nav__list a:hover {
+    background-color: var(--rm-olive);
+    color: white;
+    border-radius: 4px;
+}
+
+/* Social links focus */
+.nav__social-link:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: scale(1.1);
+}
+
+/* ============================================
+   CONTRASTE ALTO
+   ============================================ */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --rm-olive: #000000;
+        --rm-sage: #000000;
+        --rm-rust: #8b4513;
+        --rm-brown: #654321;
+        --rm-cream: #ffffff;
+        --rm-charcoal: #000000;
+    }
+
+    .btn {
+        border: 2px solid currentColor;
+    }
+
+    .nav__link {
+        text-decoration: underline;
+    }
+}
+
+/* ============================================
+   MODO DE CONTRASTE FORÇADO
+   ============================================ */
+
+@media (prefers-contrast: forced) {
+    * {
+        border-color: currentColor !important;
+    }
+}
+
+/* ============================================
+   REDUÇÃO DE MOVIMENTO
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Desabilitar parallax e efeitos 3D */
+    .floating-element {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* ============================================
+   MODAL E OVERLAYS
+   ============================================ */
+
+/* Lightbox accessibility */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox__content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+/* Focus trap no modal */
+.lightbox:modal {
+    display: flex;
+}
+
+.lightbox[open] {
+    display: flex;
+}
+
+/* ============================================
+   RESPONSIVIDADE ACESSÍVEL
+   ============================================ */
+
+/* Zoom support */
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+
+    /* Botões maiores em mobile */
+    .btn {
+        min-height: 44px;
+        padding: 12px 24px;
+    }
+
+    /* Links maiores para melhor toque */
+    a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .skip-link,
+    .nav__toggle,
+    .nav__social,
+    .cursor,
+    .cursor-follower,
+    .lightbox,
+    .back-to-top {
+        display: none !important;
+    }
+
+    .nav__menu {
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+    }
+
+    /* Garantir que o conteúdo seja legível */
+    * {
+        color: black !important;
+        background: white !important;
+        box-shadow: none !important;
+    }
+
+    a {
+        text-decoration: underline !important;
+    }
+}
+
+/* ============================================
+   DARK MODE ACESSÍVEL
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --rm-olive: #9ba187;
+        --rm-sage: #545943;
+        --rm-rust: #b66c48;
+        --rm-brown: #8c421e;
+        --rm-cream: #2d2d2d;
+        --rm-charcoal: #f8f6f0;
+    }
+}
+
+/* ============================================
+   FOCUS WITHIN PARA GRUPOS
+   ============================================ */
+
+.form__group:focus-within {
+    outline: 2px solid var(--rm-olive);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   ANIMAÇÕES ACESSÍVEIS
+   ============================================ */
+
+/* Apenas animar se o usuário não preferir movimento reduzido */
+@media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+        animation: fadeIn 0.6s ease-out;
+    }
+
+    .slide-up {
+        animation: slideUp 0.6s ease-out;
+    }
+
+    .bounce {
+        animation: bounce 0.8s ease-out;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ============================================
+   ALERTAS E NOTIFICAÇÕES
+   ============================================ */
+
+/* Security alerts */
+.security-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff4444;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    max-width: 300px;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   DASHBOARD DE SEGURANÇA (DEV MODE)
+   ============================================ */
+
+.security-dashboard {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+    z-index: 9999;
+    border: 1px solid #333;
+}
+
+.security-dashboard-header {
+    padding: 8px 12px;
+    background: var(--rm-olive);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.security-dashboard-content {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 12px;
+    border-bottom: 1px solid #333;
+}
+
+.event-item {
+    padding: 4px 12px;
+    border-bottom: 1px solid #222;
+    font-size: 11px;
+}
+
+/* ============================================
+   UTILITÁRIOS DE ACESSIBILIDADE
+   ============================================ */
+
+/* Visually hidden but accessible to screen readers */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+/* Clear floats for screen readers */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ============================================
+   SUPORTE A LEITURA DE TELA
+   ============================================ */
+
+@media (max-width: 768px) {
+    .skip-link {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -60px;
+    }
+
+    .skip-link:focus {
+        top: 10px;
+    }
+}
+
+/* Garantir que elementos interativos tenham tamanho mínimo */
+button,
+a,
+input,
+select,
+textarea {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+/* Suporte para voice control */
+@media (prefers-reduced-motion: reduce) and (prefers-color-scheme: dark) {
+    :root {
+        --rm-olive: #ffffff;
+        --rm-sage: #cccccc;
+        --rm-rust: #ff9999;
+        --rm-brown: #cc6666;
+        --rm-cream: #000000;
+        --rm-charcoal: #ffffff;
+    }
+}
