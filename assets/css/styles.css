@@ -1,100 +1,12 @@
-:root {
-  --rm-olive: #545943;
-  --rm-sage: #9BA187;
-  --rm-rust: #B66C48;
-  --rm-brown: #8C421E;
-  --rm-cream: #F8F6F0;
-  --rm-warm-gray: #E8E6E1;
-  --rm-charcoal: #2D2D2D;
-  --rm-white: #FFFFFF;
-  --rm-black: #000000;
+/**
+ * RAFAEL MUNARO ARQUITETURA - STYLES PRINCIPAIS
+ * Arquivo principal que importa todos os módulos CSS
+ */
 
-  --bg-gradient: linear-gradient(135deg, #ffffff 0%, #fbfbf9 30%, #f7f7f4 70%, #f0ede6 100%);
-  --hero-gradient: linear-gradient(135deg, rgba(84, 89, 67, 0.1) 0%, rgba(155, 161, 135, 0.05) 50%, rgba(182, 108, 72, 0.1) 100%);
-  --accent-gradient: linear-gradient(135deg, var(--rm-rust) 0%, var(--rm-brown) 100%);
-  --text-gradient: linear-gradient(135deg, var(--rm-olive) 0%, var(--rm-sage) 100%);
-
-  --space-xs: clamp(4px, 1vw, 8px);
-  --space-sm: clamp(8px, 2vw, 12px);
-  --space-md: clamp(12px, 3vw, 16px);
-  --space-lg: clamp(16px, 4vw, 24px);
-  --space-xl: clamp(24px, 6vw, 32px);
-  --space-2xl: clamp(32px, 8vw, 48px);
-  --space-3xl: clamp(48px, 12vw, 64px);
-  --space-4xl: clamp(64px, 16vw, 96px);
-
-  --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-secondary: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-
-  --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
-  --text-sm: clamp(0.875rem, 2vw, 1rem);
-  --text-base: clamp(1rem, 2.5vw, 1.125rem);
-  --text-lg: clamp(1.125rem, 3vw, 1.25rem);
-  --text-xl: clamp(1.25rem, 4vw, 1.5rem);
-  --text-2xl: clamp(1.4rem, 5vw, 2rem);
-  --text-3xl: clamp(2rem, 7vw, 3rem);
-  --text-4xl: clamp(2.6rem, 10vw, 4rem);
-  --text-5xl: clamp(3.5rem, 12vw, 5rem);
-
-  --radius-sm: clamp(4px, 1vw, 8px);
-  --radius-md: clamp(8px, 2vw, 16px);
-  --radius-lg: clamp(12px, 3vw, 24px);
-  --radius-xl: clamp(16px, 4vw, 32px);
-
-  --shadow-xs: 0 1px 2px rgba(84, 89, 67, 0.05);
-  --shadow-sm: 0 2px 4px rgba(84, 89, 67, 0.06), 0 1px 2px rgba(84, 89, 67, 0.04);
-  --shadow-md: 0 4px 8px rgba(84, 89, 67, 0.08), 0 2px 4px rgba(84, 89, 67, 0.06);
-  --shadow-lg: 0 8px 16px rgba(84, 89, 67, 0.12), 0 4px 8px rgba(84, 89, 67, 0.08);
-  --shadow-xl: 0 16px 32px rgba(84, 89, 67, 0.15), 0 8px 16px rgba(84, 89, 67, 0.10);
-  --shadow-2xl: 0 32px 64px rgba(84, 89, 67, 0.20), 0 16px 32px rgba(84, 89, 67, 0.15);
-
-  --shadow-rust: 0 8px 32px rgba(182, 108, 72, 0.25);
-  --shadow-olive: 0 8px 32px rgba(84, 89, 67, 0.25);
-  --shadow-sage: 0 8px 32px rgba(155, 161, 135, 0.25);
-
-  --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 240ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --transition-elastic: 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-  --z-negative: -1;
-  --z-base: 0;
-  --z-docked: 10;
-  --z-dropdown: 1000;
-  --z-sticky: 1020;
-  --z-banner: 1030;
-  --z-overlay: 1040;
-  --z-modal: 1050;
-  --z-popover: 1060;
-  --z-skip-link: 1070;
-  --z-toast: 1080;
-  --z-tooltip: 1090;
-
-  --bp-xs: 375px;
-  --bp-sm: 640px;
-  --bp-md: 768px;
-  --bp-lg: 1024px;
-  --bp-xl: 1280px;
-  --bp-2xl: 1536px;
-
-  --aspect-square: 1;
-  --aspect-video: 16 / 9;
-  --aspect-portrait: 3 / 4;
-
-  --container-xs: 20rem;
-  --container-sm: 24rem;
-  --container-md: 28rem;
-  --container-lg: 32rem;
-  --container-xl: 36rem;
-  --container-2xl: 42rem;
-  --container-3xl: 48rem;
-  --container-4xl: 56rem;
-  --container-5xl: 64rem;
-  --container-6xl: 72rem;
-  --container-7xl: 80rem;
-}
+/* Importar módulos CSS */
+@import './base.css';
+@import './components.css';
+@import './utilities.css';
 
 /* RESET E BASE STYLES */
 *,
