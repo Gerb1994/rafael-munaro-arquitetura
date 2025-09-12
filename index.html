@@ -22,9 +22,10 @@
     <meta property="og:url" content="https://rafaelmunaroarquitetura.com/">
     <meta property="og:title" content="Rafael Munaro | Arquiteto e Designer de Interiores">
     <meta property="og:description" content="Projetos com alma, espaços com identidade. Arquitetura e design de interiores em Porto Alegre.">
-    <meta property="og:image" content="https://rafaelmunaroarquitetura.com/assets/images/Perfil Rafael Munaro.png">
+    <meta property="og:image" content="https://rafaelmunaroarquitetura.com/assets/images/perfil-rafael-munaro.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Retrato de Rafael Munaro, arquiteto e designer de interiores">
     <meta property="og:site_name" content="Rafael Munaro Arquitetura">
     <meta property="og:locale" content="pt_BR">
     
@@ -33,8 +34,9 @@
     <meta name="twitter:url" content="https://rafaelmunaroarquitetura.com/">
     <meta name="twitter:title" content="Rafael Munaro | Arquiteto e Designer de Interiores">
     <meta name="twitter:description" content="Projetos com alma, espaços com identidade. Arquitetura e design de interiores em Porto Alegre.">
-    <meta name="twitter:image" content="https://rafaelmunaroarquitetura.com/assets/images/Perfil Rafael Munaro.png">
+    <meta name="twitter:image" content="https://rafaelmunaroarquitetura.com/assets/images/perfil-rafael-munaro.png">
     <meta name="twitter:image:alt" content="Retrato de Rafael Munaro, arquiteto e designer de interiores">
+    <meta name="twitter:site" content="@rafaelmunaroarq">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
@@ -143,26 +145,26 @@
 
     <!-- Header -->
     <header class="header" role="banner">
-        <nav id="site-nav" class="nav container" role="navigation" aria-label="Navegação principal">
+        <nav id="site-nav" class="nav container" role="navigation" aria-label="Navegação principal" tabindex="-1">
             <a href="#" class="nav__logo" aria-label="Rafael Munaro Arquitetura - Página inicial">
                 Rafael Munaro
             </a>
 
-            <ul class="nav__list" role="menubar">
-                <li role="none">
-                    <a href="#home" class="nav__link" role="menuitem">Início</a>
+            <ul class="nav__list">
+                <li>
+                    <a href="#home" class="nav__link">Início</a>
                 </li>
-                <li role="none">
-                    <a href="#sobre" class="nav__link" role="menuitem">Sobre</a>
+                <li>
+                    <a href="#sobre" class="nav__link">Sobre</a>
                 </li>
-                <li role="none">
-                    <a href="#projetos" class="nav__link" role="menuitem">Projetos</a>
+                <li>
+                    <a href="#projetos" class="nav__link">Projetos</a>
                 </li>
-                <li role="none">
-                    <a href="#servicos" class="nav__link" role="menuitem">Serviços</a>
+                <li>
+                    <a href="#servicos" class="nav__link">Serviços</a>
                 </li>
-                <li role="none">
-                    <a href="#contato" class="btn btn--primary" role="menuitem">Contato</a>
+                <li>
+                    <a href="#contato" class="btn btn--primary">Contato</a>
                 </li>
             </ul>
         </nav>
@@ -171,7 +173,7 @@
     <!-- Main Content -->
     <main id="main-content" role="main">
         <!-- Hero Section -->
-        <section id="home" class="hero" role="banner" aria-labelledby="hero-title">
+        <section id="home" class="hero" aria-labelledby="hero-title">
             <div class="hero__bg" role="presentation"></div>
             <div class="hero__content">
                 <h1 id="hero-title" class="hero__title">
@@ -248,7 +250,7 @@
 
                 <!-- Portfolio content will be loaded dynamically -->
                 <div id="portfolio-container" class="portfolio__container">
-                    <div class="loading-skeleton" style="height: 400px; width: 100%; border-radius: var(--border-radius-lg);"></div>
+                    <div class="loading-skeleton portfolio__skeleton"></div>
                 </div>
             </div>
         </section>
@@ -454,18 +456,24 @@
 
                 <div class="footer__social">
                     <h4 class="footer__social-title">Redes Sociais</h4>
-                    <div class="footer__social-links" role="list">
-                        <a href="https://www.instagram.com/rafaelmunaro.arq/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.facebook.com/rafael.munaro.2025" target="_blank" rel="noopener" class="footer__social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://br.linkedin.com/in/rafael-soares-munaro" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                        </a>
-                            </div>
-                            </div>
+                    <ul class="footer__social-links">
+                        <li>
+                            <a href="https://www.instagram.com/rafaelmunaro.arq/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/rafael.munaro.2025" target="_blank" rel="noopener" class="footer__social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://br.linkedin.com/in/rafael-soares-munaro" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                             </div>
 
             <div class="footer__bottom">
