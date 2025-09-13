@@ -1,53 +1,737 @@
-Atue em mentes diferentes que pensam de forma independente. As mentes pensam de forma independente. As mentes e 1 e 2 retornam com uma proposta do código, e a mente 3 executa com as melhores praticas de programação.
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Munaro | Arquiteto e Designer de Interiores</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Playfair Display for titles, Poppins for body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
----
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FDFDFD; /* Fallback color */
+            background-image: 
+                linear-gradient(to bottom, rgba(253, 253, 253, 0.95), rgba(245, 246, 243, 0.95)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect fill='none' stroke-width='1' stroke-opacity='0.08' id='a' x='-400' y='-300' width='800' height='600'/%3E%3C/defs%3E%3Cg transform='scale(1.25)'%3E%3Cg transform='translate(1000 750)'%3E%3Cg%3E%3Cuse xlink:href='%23a' stroke='%23545943'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(2.1 2.1 -2.1)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(4.2 4.2 -4.2)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(6.3 6.3 -6.3)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(8.4 8.4 -8.4)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(10.5 10.5 -10.5)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(12.6 12.6 -12.6)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(14.7 14.7 -14.7)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(16.8 16.8 -16.8)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(18.9 18.9 -18.9)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(21 21 -21)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(23.1 23.1 -23.1)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(25.2 25.2 -25.2)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(27.3 27.3 -27.3)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(29.4 29.4 -29.4)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(31.5 31.5 -31.5)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(33.6 33.6 -33.6)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(35.7 35.7 -35.7)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(37.8 37.8 -37.8)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(39.9 39.9 -39.9)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(42 42 -42)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(44.1 44.1 -44.1)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(46.2 46.2 -46.2)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(48.3 48.3 -48.3)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(50.4 50.4 -50.4)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(52.5 52.5 -52.5)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(54.6 54.6 -54.6)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(56.7 56.7 -56.7)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(58.8 58.8 -58.8)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(60.9 60.9 -60.9)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(63 63 -63)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(65.1 65.1 -65.1)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(67.2 67.2 -67.2)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(69.3 69.3 -69.3)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(71.4 71.4 -71.4)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(73.5 73.5 -73.5)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(75.6 75.6 -75.6)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(77.7 77.7 -77.7)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(79.8 79.8 -79.8)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(81.9 81.9 -81.9)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(84 84 -84)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(86.1 86.1 -86.1)'/%3E%3Cuse xlink:href='%23a' stroke='%23545943' transform='rotate(88.2 88.2 -88.2)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            cursor: none; /* Hide default cursor */
+        }
+        
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #545943;
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease;
+            transition-property: width, height, border;
+            backdrop-filter: hue-rotate(180deg);
+        }
 
-<Mente 1>
+        .cursor-grow {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(182, 108, 72, 0.2);
+            border: 2px solid transparent;
+        }
 
-### Persona
-Você é um especialista em **UI design**, com experiência em portfólios digitais de arquitetura e design de interiores.
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
 
-### Contexto
-Projeto: Site institucional do arquiteto e designer de interiores **Rafael Munaro**.  
-Domínio: https://rafaelmunaroarquitetura.com/  
-Situação: Página única, simples, com identidade visual já existente.  
-Objetivo: Refinar e aprimorar a estética, transformando o design atual em algo mais sofisticado, harmonioso e impecável em termos visuais.
+        /* Custom color classes from the provided palette */
+        .text-brand-dark-olive { color: #545943; }
+        .bg-brand-dark-olive { background-color: #545943; }
+        .border-brand-dark-olive { border-color: #545943; }
 
-### Instrução
-- Analise a identidade visual presente no site e proponha melhorias que elevem o nível estético para uma versão nível premium, com alto gral de atratividade pela estética incrível. Todo seu foco está em fazer uma design UI/IX impecável. Deve ser *moderno*, *dinâmico*, *único*, *impecável*, *interativo* e *impressionante*
-- Aprimorar a identidade visual já existente.   
+        .text-brand-light-olive { color: #9BA187; }
+        .bg-brand-light-olive { background-color: #9BA187; }
 
-### Formato de Saída
-1. Siga com as melhores praticas de programação **de design UI**
-2. Apure a proporção de todos os elementos em toda a pagina e ajuste para seguir as melhores proporções, tamanhos, e etc..
+        .text-brand-terracotta { color: #B66C48; }
+        .bg-brand-terracotta { background-color: #B66C48; }
+        .border-brand-terracotta { border-color: #B66C48; }
+        
+        .text-brand-brown { color: #8C421E; }
+        .bg-brand-brown { background-color: #8C421E; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
 
----
+        /* Hero Text Animation */
+        .hero-content > * {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .hero-content h1 { animation-delay: 0.2s; }
+        .hero-content p { animation-delay: 0.4s; }
+        .hero-content a { animation-delay: 0.6s; }
 
-<Mente 2>
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-### Persona
-Você é um especialista em **UX design**, com experiência em portfólios digitais de arquitetura e design de interiores.
+        .section-title {
+            font-weight: 700;
+            font-size: 2.75rem; /* 44px */
+            color: #545943;
+            margin-bottom: 1.5rem; /* 24px */
+            position: relative;
+            padding-bottom: 1rem;
+        }
 
-### Contexto
-Projeto: Site institucional do arquiteto e designer de interiores **Rafael Munaro**.  
-Domínio: https://rafaelmunaroarquitetura.com/  
-Situação: Página única, simples, com identidade visual já existente.  
-Objetivo: Refinar e aprimorar a estética, transformando o design atual em algo mais sofisticado, harmonioso e impecável em termos visuais.
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #B66C48;
+            border-radius: 2px;
+        }
 
-### Instrução
-- Analise a identidade visual presente no site e proponha melhorias que elevem o nível estético para uma versão nível premium, com alto gral de atratividade pela estética incrível. Todo seu foco está em fazer uma design UI/IX impecável. Deve ser *moderno*, *dinâmico*, *único*, *impecável*, *interativo* e *impressionante*
-- Aprimorar a identidade visual já existente.   
+        /* Project gallery filter button styles */
+        .filter-btn {
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #545943;
+            color: white;
+            border-color: #545943;
+        }
 
-### Formato de Saída
-1. Siga com as melhores praticas de programação **de design UX**
-2. Apure a proporção de todos os elementos em toda a pagina e ajuste para seguir as melhores proporções, tamanhos, e etc..
+        /* Animation for elements appearing on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: opacity 1s cubic-bezier(0.5, 0, 0, 1), transform 1s cubic-bezier(0.5, 0, 0, 1);
+        }
 
----
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-<Mente 3>
+        /* Custom nav link underline effect */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #B66C48;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-Siga as melhores praticas de programação e inclua no código a junção das propostas das <mente 1> e <mente 2>. 
+        /* Testimonial slider */
+        .testimonial-slide {
+            display: none;
+        }
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
 
-Não inclua arquivos desnecessários, duplicatas, comentários não essenciais ou qualquer tipo de comentário que não impactam o código.
+        /* Scroll to Top Button */
+        #scroll-to-top {
+            transition: opacity 0.3s, visibility 0.3s;
+        }
 
-Você é um programador profissional e a partir de agora, siga as instruções e ajuste o código.
+        /* Process Section styles */
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(50%);
+            height: 2px;
+            width: 100%;
+            background-color: #ddd;
+            z-index: -1;
+        }
+        @media (max-width: 1023px) {
+            .process-step:not(:last-child)::after {
+                width: 2px;
+                height: 100%;
+                left: 40px;
+                top: 50%;
+                transform: translateY(50%);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-sm fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl text-brand-dark-olive" style="font-family: 'Playfair Display', serif;">Rafael Munaro</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="nav-link text-gray-600 hover:text-brand-terracotta transition">Início</a>
+                <a href="#sobre" class="nav-link text-gray-600 hover:text-brand-terracotta transition">Sobre</a>
+                <a href="#projetos" class="nav-link text-gray-600 hover:text-brand-terracotta transition">Projetos</a>
+                <a href="#servicos" class="nav-link text-gray-600 hover:text-brand-terracotta transition">Serviços</a>
+                <a href="#contato" class="bg-brand-terracotta text-white px-6 py-2 rounded-full hover:bg-brand-brown transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Contato</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <i class="fas fa-bars text-2xl text-brand-dark-olive"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#home" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Início</a>
+            <a href="#sobre" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Sobre</a>
+            <a href="#projetos" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Projetos</a>
+            <a href="#servicos" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Serviços</a>
+            <a href="#contato" class="block text-center py-3 px-4 text-sm bg-brand-terracotta text-white hover:bg-brand-brown">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-white text-center overflow-hidden">
+        <div class="hero-content bg-black bg-opacity-30 p-10 md:p-16 rounded-lg backdrop-blur-sm">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">Arquitetura que transforma</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl font-light">Projetos com alma, espaços com identidade.</p>
+            <a href="#projetos" class="bg-brand-terracotta text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-brand-brown transition-all duration-300 shadow-xl transform hover:scale-105">Conheça os Projetos</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Sobre Section -->
+        <section id="sobre" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 reveal">
+                    <div class="lg:w-5/12 flex justify-center items-center">
+                        <div class="relative w-80 h-80 md:w-96 md:h-96">
+                            <div class="absolute top-0 left-0 w-full h-full border-4 border-brand-light-olive rounded-full z-0 transform translate-x-3 translate-y-3"></div>
+                            <img src="https://placehold.co/500x500/545943/FFFFFF?text=Rafael+Munaro" alt="Foto de Rafael Munaro" class="rounded-full shadow-2xl w-full h-full object-cover relative z-10">
+                        </div>
+                    </div>
+                    <div class="lg:w-6/12 text-center lg:text-left mt-8 lg:mt-0">
+                        <h2 class="section-title">Sobre Mim</h2>
+                        <p class="mb-6 text-gray-600 leading-relaxed text-lg">
+                            Arquiteto e Urbanista apaixonado por criar soluções que unem estética, funcionalidade e emoção. Com uma abordagem centrada no cliente, meu objetivo é traduzir seus sonhos em projetos concretos, superando expectativas em cada detalhe.
+                        </p>
+                        <p class="mb-8 text-gray-600 leading-relaxed text-lg">
+                            Acredito que a arquitetura tem o poder de influenciar a qualidade de vida. Por isso, dedico-me a desenvolver ambientes que não são apenas bonitos, mas que também promovem conforto, bem-estar e praticidade para o dia a dia.
+                        </p>
+                        <div class="flex justify-center lg:justify-start space-x-5">
+                            <a href="https://www.instagram.com/rafaelmunaro.arq/" target="_blank" class="text-brand-dark-olive hover:text-brand-terracotta text-3xl transition"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/rafael.munaro.2025" target="_blank" class="text-brand-dark-olive hover:text-brand-terracotta text-3xl transition"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://br.linkedin.com/in/rafael-soares-munaro" target="_blank" class="text-brand-dark-olive hover:text-brand-terracotta text-3xl transition"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos Section -->
+        <section id="projetos" class="py-24 bg-gray-50/80 backdrop-blur-sm">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title reveal">Portfólio</h2>
+                <p class="max-w-3xl mx-auto mb-12 text-gray-600 reveal">Explore uma seleção de projetos que demonstram meu compromisso com a excelência e a inovação no design.</p>
+                
+                <div class="flex justify-center space-x-2 md:space-x-4 mb-12 reveal">
+                    <button class="filter-btn active px-5 py-2 rounded-full text-sm md:text-base font-medium" data-filter="all">Todos</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm md:text-base font-medium" data-filter="residencial">Residencial</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm md:text-base font-medium" data-filter="comercial">Comercial</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm md:text-base font-medium" data-filter="interiores">Interiores</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Items -->
+                    <div class="project-item reveal group overflow-hidden rounded-lg shadow-lg relative cursor-pointer" 
+                        data-category="residencial"
+                        data-title="Casa Contemporânea"
+                        data-category-text="Residencial"
+                        data-description="<p class='mb-4'>Este projeto de residência unifamiliar foi concebido para uma família moderna que valoriza a integração de espaços e o contato com a natureza. As linhas retas e o uso de materiais como concreto aparente, madeira e vidro criam uma estética sofisticada e atemporal.</p><p>A área social é totalmente integrada, conectando sala de estar, jantar e cozinha gourmet a uma ampla varanda com vista para o jardim, ideal para receber amigos e familiares.</p>">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop" alt="Projeto Residencial Moderno" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                             <div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="fas fa-search-plus text-3xl mb-2"></i>
+                                <h3 class="text-2xl font-bold">Casa Contemporânea</h3>
+                                <p class="text-sm tracking-wider">RESIDENCIAL</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="project-item reveal group overflow-hidden rounded-lg shadow-lg relative cursor-pointer"
+                        data-category="interiores"
+                        data-title="Living Integrado"
+                        data-category-text="Design de Interiores"
+                        data-description="<p class='mb-4'>O desafio deste projeto foi criar um living que fosse ao mesmo tempo elegante, confortável e funcional. A paleta de cores neutras, com tons de cinza, bege e off-white, foi a base para criar uma atmosfera serena e acolhedora.</p><p>O mobiliário de design assinado e a iluminação cuidadosamente planejada valorizam os detalhes e criam diferentes cenários no mesmo ambiente. O uso de texturas naturais, como linho, madeira e pedra, adiciona calor e sofisticação.</p>">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=1854&auto=format&fit=crop" alt="Projeto de Interiores" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                           <div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="fas fa-search-plus text-3xl mb-2"></i>
+                                <h3 class="text-2xl font-bold">Living Integrado</h3>
+                                <p class="text-sm tracking-wider">DESIGN DE INTERIORES</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item reveal group overflow-hidden rounded-lg shadow-lg relative cursor-pointer"
+                        data-category="comercial"
+                        data-title="Escritório Moderno"
+                        data-category-text="Comercial"
+                        data-description="<p class='mb-4'>Desenvolvido para uma startup de tecnologia, este escritório foi projetado para estimular a criatividade, a colaboração e o bem-estar da equipe. O layout aberto, com diversas áreas de trabalho flexíveis, permite diferentes dinâmicas de grupo.</p><p>A identidade visual da marca foi incorporada nos detalhes, desde as cores vibrantes em pontos estratégicos até os elementos gráficos nas paredes. A biofilia também está presente, com plantas que purificam o ar e trazem vida ao ambiente corporativo.</p>">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" alt="Projeto Comercial" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                           <div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="fas fa-search-plus text-3xl mb-2"></i>
+                                <h3 class="text-2xl font-bold">Escritório Moderno</h3>
+                                <p class="text-sm tracking-wider">COMERCIAL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item reveal group overflow-hidden rounded-lg shadow-lg relative cursor-pointer"
+                        data-category="interiores"
+                        data-title="Cozinha Gourmet"
+                        data-category-text="Design de Interiores"
+                        data-description="<p class='mb-4'>Uma cozinha projetada para quem ama cozinhar e receber. A ilha central é o coração do projeto, funcionando como bancada de preparo e mesa para refeições rápidas. Os armários planejados otimizam o armazenamento e garantem a organização.</p><p>A combinação da marcenaria em tom escuro com a bancada de quartzo claro e os metais em dourado escovado resultou em um visual moderno e cheio de personalidade.</p>">
+                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=2080&auto=format&fit=crop" alt="Projeto de Cozinha" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                           <div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="fas fa-search-plus text-3xl mb-2"></i>
+                                <h3 class="text-2xl font-bold">Cozinha Gourmet</h3>
+                                <p class="text-sm tracking-wider">DESIGN DE INTERIORES</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item reveal group overflow-hidden rounded-lg shadow-lg relative cursor-pointer"
+                        data-category="residencial"
+                        data-title="Refúgio no Campo"
+                        data-category-text="Residencial"
+                        data-description="<p class='mb-4'>Esta casa de campo foi desenhada para ser um oásis de tranquilidade. A arquitetura valoriza a paisagem do entorno, com grandes aberturas que emolduram a vista e integram o interior com o exterior.</p><p>O uso de materiais rústicos como tijolo aparente, madeira de demolição e pedra natural cria uma atmosfera de aconchego e pertencimento, perfeita para relaxar e se reconectar com a natureza.</p>">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070&auto=format&fit=crop" alt="Projeto de Casa de Campo" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                           <div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="fas fa-search-plus text-3xl mb-2"></i>
+                                <h3 class="text-2xl font-bold">Refúgio no Campo</h3>
+                                <p class="text-sm tracking-wider">RESIDENCIAL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item reveal group overflow-hidden rounded-lg shadow-lg relative cursor-pointer"
+                        data-category="comercial"
+                        data-title="Loja Conceito"
+                        data-category-text="Comercial"
+                        data-description="<p class='mb-4'>O projeto para esta loja conceito buscou criar uma experiência de compra única e memorável. O design de interiores foi pensado para contar a história da marca e destacar os produtos de forma criativa.</p><p>A iluminação cênica, o mobiliário exclusivo e um percurso de circulação intuitivo guiam o cliente pela loja, transformando a visita em uma jornada de descoberta. Cada detalhe foi pensado para refletir a identidade premium da marca.</p>">
+                        <img src="https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?q=80&w=1974&auto=format&fit=crop" alt="Projeto de Loja" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                           <div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="fas fa-search-plus text-3xl mb-2"></i>
+                                <h3 class="text-2xl font-bold">Loja Conceito</h3>
+                                <p class="text-sm tracking-wider">COMERCIAL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços Section -->
+        <section id="servicos" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title reveal">Serviços</h2>
+                <p class="max-w-3xl mx-auto mb-12 text-gray-600 reveal">Oferecendo um leque completo de soluções em arquitetura e design para atender às suas necessidades.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="group bg-gray-50/80 backdrop-blur-sm p-8 rounded-lg border border-gray-100 text-center reveal transform hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                        <div class="transform group-hover:-translate-y-2 transition-transform duration-300">
+                            <div class="mb-5 inline-block p-4 bg-brand-terracotta/10 rounded-full"><i class="fas fa-drafting-compass text-3xl text-brand-terracotta"></i></div>
+                            <h3 class="text-2xl font-semibold mb-2 text-brand-dark-olive">Projetos Arquitetônicos</h3>
+                        </div>
+                        <p class="text-gray-600 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">Criação de projetos residenciais e comerciais completos, desde o conceito até o executivo.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="group bg-gray-50/80 backdrop-blur-sm p-8 rounded-lg border border-gray-100 text-center reveal transform hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                        <div class="transform group-hover:-translate-y-2 transition-transform duration-300">
+                            <div class="mb-5 inline-block p-4 bg-brand-terracotta/10 rounded-full"><i class="fas fa-couch text-3xl text-brand-terracotta"></i></div>
+                            <h3 class="text-2xl font-semibold mb-2 text-brand-dark-olive">Design de Interiores</h3>
+                        </div>
+                        <p class="text-gray-600 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">Elaboração de ambientes internos que aliam beleza, conforto e personalidade.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="group bg-gray-50/80 backdrop-blur-sm p-8 rounded-lg border border-gray-100 text-center reveal transform hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                        <div class="transform group-hover:-translate-y-2 transition-transform duration-300">
+                            <div class="mb-5 inline-block p-4 bg-brand-terracotta/10 rounded-full"><i class="fas fa-hard-hat text-3xl text-brand-terracotta"></i></div>
+                            <h3 class="text-2xl font-semibold mb-2 text-brand-dark-olive">Acompanhamento de Obra</h3>
+                        </div>
+                        <p class="text-gray-600 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">Gerenciamento e supervisão para garantir que o projeto seja executado com fidelidade e qualidade.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="group bg-gray-50/80 backdrop-blur-sm p-8 rounded-lg border border-gray-100 text-center reveal transform hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                        <div class="transform group-hover:-translate-y-2 transition-transform duration-300">
+                            <div class="mb-5 inline-block p-4 bg-brand-terracotta/10 rounded-full"><i class="fas fa-comments text-3xl text-brand-terracotta"></i></div>
+                            <h3 class="text-2xl font-semibold mb-2 text-brand-dark-olive">Consultoria</h3>
+                        </div>
+                        <p class="text-gray-600 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">Orientação especializada para ajudar você a tomar as melhores decisões para seu espaço.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="processo" class="py-24 bg-gray-50/80 backdrop-blur-sm">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title reveal">Processo</h2>
+                <p class="max-w-3xl mx-auto mb-20 text-gray-600 reveal">Um método claro e colaborativo para transformar suas ideias em realidade, com excelência em cada fase.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
+                    <!-- Step 1 -->
+                    <div class="process-step flex flex-col lg:flex-row items-center text-center lg:text-left reveal relative">
+                        <div class="flex-shrink-0 mb-4 lg:mb-0 lg:mr-6">
+                            <div class="w-20 h-20 rounded-full bg-brand-terracotta text-white flex items-center justify-center text-3xl font-bold">01</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-brand-dark-olive mb-2">Briefing e Análise</h3>
+                            <p class="text-gray-600 text-sm">Entendo suas necessidades, desejos e o potencial do espaço para criar a base do projeto.</p>
+                        </div>
+                    </div>
+                     <!-- Step 2 -->
+                    <div class="process-step flex flex-col lg:flex-row items-center text-center lg:text-left reveal relative">
+                        <div class="flex-shrink-0 mb-4 lg:mb-0 lg:mr-6">
+                             <div class="w-20 h-20 rounded-full bg-brand-terracotta text-white flex items-center justify-center text-3xl font-bold">02</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-brand-dark-olive mb-2">Estudo Preliminar</h3>
+                            <p class="text-gray-600 text-sm">Desenvolvo os primeiros esboços e conceitos visuais para dar forma às ideias iniciais.</p>
+                        </div>
+                    </div>
+                     <!-- Step 3 -->
+                    <div class="process-step flex flex-col lg:flex-row items-center text-center lg:text-left reveal relative">
+                        <div class="flex-shrink-0 mb-4 lg:mb-0 lg:mr-6">
+                             <div class="w-20 h-20 rounded-full bg-brand-terracotta text-white flex items-center justify-center text-3xl font-bold">03</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-brand-dark-olive mb-2">Projeto Executivo</h3>
+                            <p class="text-gray-600 text-sm">Detalho todos os aspectos técnicos e construtivos para uma execução precisa e sem surpresas.</p>
+                        </div>
+                    </div>
+                     <!-- Step 4 -->
+                    <div class="process-step flex flex-col lg:flex-row items-center text-center lg:text-left reveal relative">
+                        <div class="flex-shrink-0 mb-4 lg:mb-0 lg:mr-6">
+                             <div class="w-20 h-20 rounded-full bg-brand-terracotta text-white flex items-center justify-center text-3xl font-bold">04</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-brand-dark-olive mb-2">Acompanhamento</h3>
+                            <p class="text-gray-600 text-sm">Supervisiono a obra para garantir que o resultado final seja fiel ao que foi projetado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="depoimentos" class="py-24 bg-brand-dark-olive text-white">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="section-title !text-white">Depoimentos</h2>
+                <p class="max-w-3xl mx-auto mb-12 text-gray-300">O que meus clientes dizem sobre o meu trabalho.</p>
+                <div class="relative max-w-3xl mx-auto">
+                    <div id="testimonial-container" class="mb-8">
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide active">
+                            <p class="text-xl italic mb-6">"O Rafael transformou nossa casa em um verdadeiro lar. Ele captou nossa essência e o resultado ficou incrível, muito além do que imaginávamos!"</p>
+                            <p class="font-bold text-brand-light-olive">- Família Silva</p>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide">
+                            <p class="text-xl italic mb-6">"Profissionalismo impecável do início ao fim do projeto. O escritório ficou moderno, funcional e com a identidade da nossa marca. Recomendo fortemente!"</p>
+                            <p class="font-bold text-brand-light-olive">- J. Oliveira, CEO</p>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="testimonial-slide">
+                            <p class="text-xl italic mb-6">"Contratar o Rafael foi a melhor decisão. Ele otimizou todos os espaços do nosso apartamento, deixando tudo mais prático e aconchegante."</p>
+                            <p class="font-bold text-brand-light-olive">- Maria e João P.</p>
+                        </div>
+                    </div>
+                    <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 text-3xl opacity-50 hover:opacity-100 transition-opacity"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 text-3xl opacity-50 hover:opacity-100 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section id="contato" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="section-title reveal">Vamos conversar?</h2>
+                    <p class="max-w-3xl mx-auto mb-12 text-gray-600 reveal">Entre em contato para agendar uma conversa e dar o primeiro passo na realização do seu projeto.</p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-12 reveal">
+                    <div class="lg:w-1/3 space-y-8">
+                         <div class="flex items-start space-x-4">
+                            <div class="mt-1 text-brand-terracotta text-2xl"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <h3 class="font-semibold text-xl text-brand-dark-olive">WhatsApp</h3>
+                                <a href="https://api.whatsapp.com/send/?phone=5519996908104" target="_blank" class="text-gray-600 hover:text-brand-terracotta transition">(19) 99690-8104</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1 text-brand-terracotta text-2xl"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h3 class="font-semibold text-xl text-brand-dark-olive">E-mail</h3>
+                                <a href="mailto:contato@rafaelmunaroarquitetura.com" class="text-gray-600 hover:text-brand-terracotta transition">contato@rafaelmunaroarquitetura.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1 text-brand-terracotta text-2xl"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h3 class="font-semibold text-xl text-brand-dark-olive">Endereço</h3>
+                                <p class="text-gray-600">Rua Padre Fabiano, 1072, Centro<br>Capivari/SP</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-2/3 bg-gray-50/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+                        <form action="#" method="POST">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-terracotta focus:border-transparent outline-none transition">
+                                <input type="email" placeholder="Seu e-mail" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-terracotta focus:border-transparent outline-none transition">
+                            </div>
+                            <div class="mb-6">
+                                <textarea placeholder="Sua mensagem..." rows="5" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-terracotta focus:border-transparent outline-none transition"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full bg-brand-terracotta text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-brown transition-all duration-300 shadow-lg transform hover:scale-105">Enviar Mensagem</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark-olive text-white pt-16 pb-8">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl mb-4" style="font-family: 'Playfair Display', serif;">Rafael Munaro</h3>
+            <div class="flex justify-center space-x-6 my-8">
+                 <a href="#sobre" class="text-gray-300 hover:text-white transition">Sobre</a>
+                <a href="#projetos" class="text-gray-300 hover:text-white transition">Projetos</a>
+                <a href="#servicos" class="text-gray-300 hover:text-white transition">Serviços</a>
+                <a href="#contato" class="text-gray-300 hover:text-white transition">Contato</a>
+            </div>
+             <div class="flex justify-center space-x-5 mb-8">
+                <a href="https://www.instagram.com/rafaelmunaro.arq/" target="_blank" class="text-gray-300 hover:text-white text-2xl transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/rafael.munaro.2025" target="_blank" class="text-gray-300 hover:text-white text-2xl transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://br.linkedin.com/in/rafael-soares-munaro" target="_blank" class="text-gray-300 hover:text-white text-2xl transition"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="text-sm text-gray-400">&copy; 2025 Rafael Munaro Arquitetura. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-brand-terracotta w-12 h-12 rounded-full text-white flex items-center justify-center shadow-lg opacity-0 invisible hover:bg-brand-brown transition-all duration-300 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm w-full h-full z-[100] flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative transform scale-95 transition-transform duration-300">
+            <!-- Content will be injected by JS -->
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- CUSTOM CURSOR ---
+            const cursor = document.querySelector('.cursor');
+            const hoverableElements = document.querySelectorAll('a, button, .project-item, .filter-btn');
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            hoverableElements.forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('cursor-grow'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-grow'));
+            });
+
+            // --- MENU ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+            // --- HEADER & SCROLL-TO-TOP BUTTON VISIBILITY ---
+            const header = document.getElementById('header');
+            const scrollTopButton = document.getElementById('scroll-to-top');
+            const heroSection = document.getElementById('home');
+
+            window.addEventListener('scroll', () => {
+                // Header style
+                header.classList.toggle('shadow-xl', window.scrollY > 50);
+                header.classList.toggle('bg-white', window.scrollY > 50);
+
+                // Scroll-to-top button visibility
+                if (window.scrollY > 300) {
+                    scrollTopButton.classList.remove('opacity-0', 'invisible');
+                } else {
+                    scrollTopButton.classList.add('opacity-0', 'invisible');
+                }
+
+                // Hero Parallax Effect
+                let offset = window.pageYOffset;
+                heroSection.style.backgroundPositionY = offset * 0.5 + "px";
+            });
+
+            // Scroll-to-top functionality
+            scrollTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+
+            // --- PROJECT GALLERY FILTER ---
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.dataset.filter;
+                    projectItems.forEach(item => {
+                        item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
+                    });
+                });
+            });
+            
+            // --- PROJECT MODAL ---
+            const projectModal = document.getElementById('project-modal');
+            const modalContent = document.getElementById('modal-content');
+            
+            document.querySelectorAll('.project-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const title = item.dataset.title;
+                    const category = item.dataset.categoryText;
+                    const imgSrc = item.querySelector('img').src;
+                    const description = item.dataset.description;
+
+                    modalContent.innerHTML = `
+                        <button id="close-modal" class="absolute top-4 right-5 text-gray-500 hover:text-black text-3xl z-10">&times;</button>
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <div class="w-full h-64 md:h-full bg-cover bg-center rounded-t-lg md:rounded-t-none md:rounded-l-lg" style="background-image: url('${imgSrc}')"></div>
+                            <div class="p-8 md:p-10 flex flex-col">
+                                <span class="bg-brand-terracotta/10 text-brand-terracotta text-sm font-semibold px-3 py-1 rounded-full self-start mb-4">${category}</span>
+                                <h3 class="text-3xl font-bold text-brand-dark-olive mb-4" style="font-family: 'Playfair Display', serif;">${title}</h3>
+                                <div class="text-gray-600 leading-relaxed overflow-y-auto">
+                                    ${description}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    projectModal.classList.remove('opacity-0', 'invisible');
+                    modalContent.classList.remove('scale-95');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+                    document.getElementById('close-modal').addEventListener('click', closeModal);
+                });
+            });
+
+            function closeModal() {
+                projectModal.classList.add('opacity-0', 'invisible');
+                modalContent.classList.add('scale-95');
+                document.body.style.overflow = 'auto';
+            }
+
+            projectModal.addEventListener('click', (e) => {
+                if (e.target === projectModal) {
+                    closeModal();
+                }
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape" && !projectModal.classList.contains('invisible')) {
+                    closeModal();
+                }
+            });
+
+            // --- TESTIMONIAL SLIDER ---
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            setInterval(nextSlide, 7000); // Auto-play
+
+            // --- SCROLL REVEAL ANIMATION ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.dataset.delay || 0;
+                        setTimeout(() => {
+                           entry.target.classList.add('active');
+                        }, delay);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach((el, i) => {
+                if (el.classList.contains('project-item') || el.classList.contains('group') || el.classList.contains('process-step')) {
+                    el.dataset.delay = (i % 4) * 150; 
+                }
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
